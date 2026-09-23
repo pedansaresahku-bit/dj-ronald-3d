@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Volume2, VolumeX, Menu, X, Calendar, Music, Camera, User, FileText, Sparkles } from 'lucide-react';
 
-export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/', onNavigate }) {
+export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/', onNavigate, onOpenEPKModal }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navLinks = [
@@ -11,10 +11,16 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
     { name: 'Press Kit Galery', href: '#stage-gallery', route: '/galery', icon: Camera },
     { name: 'Sounds of Me', href: '#sounds-of-me', route: '/', icon: Music },
     { name: 'Kalender', href: '#kalender', route: '/', icon: Calendar },
-    { name: 'EPK Rider', href: '#epk-rider', route: '/', icon: FileText, highlight: true }
+    { name: 'EPK Rider', href: '#epk-rider', route: '/', icon: FileText, highlight: true, isModal: true }
   ];
 
   const handleLinkClick = (e, link) => {
+    if (link.isModal && onOpenEPKModal) {
+      e.preventDefault();
+      onOpenEPKModal();
+      return;
+    }
+
     if (onNavigate) {
       if (link.name === 'Press Kit Galery' && currentRoute === '/galery') {
         return;
@@ -58,9 +64,9 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
           {navLinks.map((link) => (
             <a
               key={link.name}
-              href={currentRoute === '/galery' ? `/${link.href}` : link.href}
+              href={link.isModal ? '#' : currentRoute === '/galery' ? `/${link.href}` : link.href}
               onClick={(e) => handleLinkClick(e, link)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all ${link.highlight
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer ${link.highlight
                 ? 'bg-[#E2E800] text-[#141414] font-black shadow-lg shadow-[#E2E800]/30 hover:bg-[#f2f716] hover:scale-105'
                 : currentRoute === '/galery' && link.name === 'Press Kit Galery'
                   ? 'bg-[#E2E800] text-[#141414] font-black shadow-md'
@@ -120,12 +126,12 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
                 return (
                   <a
                     key={link.name}
-                    href={currentRoute === '/galery' ? `/${link.href}` : link.href}
+                    href={link.isModal ? '#' : currentRoute === '/galery' ? `/${link.href}` : link.href}
                     onClick={(e) => {
                       setIsMobileMenuOpen(false);
                       handleLinkClick(e, link);
                     }}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all ${link.highlight
+                    className={`flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${link.highlight
                       ? 'bg-[#E2E800] text-[#141414] font-black shadow-lg shadow-[#E2E800]/20'
                       : 'text-[#D6D6D6] hover:text-[#E2E800] hover:bg-[#242424]'
                       }`}

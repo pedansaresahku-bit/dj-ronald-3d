@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 import { GALLERY_DATA, GALLERY_CATEGORIES } from '../data/galleryData';
 
-export default function PressKitGalleryPage({ onOpenLightbox, onBackToHome }) {
+export default function PressKitGalleryPage({ onOpenLightbox, onBackToHome, onOpenEPKModal }) {
   const [selectedCat, setSelectedCat] = useState('all');
 
   const filteredPhotos = selectedCat === 'all'
@@ -187,13 +187,14 @@ export default function PressKitGalleryPage({ onOpenLightbox, onBackToHome }) {
             >
               Kembali ke Home
             </button>
-            <a
-              href="/#epk-rider"
-              onClick={onBackToHome}
-              className="px-6 py-3 rounded-full bg-cyan hover:bg-cyan/90 text-black font-display font-black text-xs uppercase tracking-wider shadow-md shadow-cyan/20 transition-all"
+            <button
+              onClick={() => {
+                if (onOpenEPKModal) onOpenEPKModal();
+              }}
+              className="px-6 py-3 rounded-full bg-[#E2E800] hover:bg-[#f2f716] text-[#141414] font-display font-black text-xs uppercase tracking-wider shadow-md shadow-[#E2E800]/25 transition-all hover:scale-105 active:scale-95"
             >
               Buka EPK Rider
-            </a>
+            </button>
           </div>
         </div>
 

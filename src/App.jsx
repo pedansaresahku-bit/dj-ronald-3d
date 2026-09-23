@@ -6,6 +6,7 @@ import StageGalleryMirrorHall from './components/StageGalleryMirrorHall';
 import SoundsOfMe from './components/SoundsOfMe';
 import CalendarCMS from './components/CalendarCMS';
 import EPKRider from './components/EPKRider';
+import EPKRiderModal from './components/EPKRiderModal';
 import LightboxModal from './components/LightboxModal';
 import CMSModal from './components/CMSModal';
 import Toast from './components/Toast';
@@ -79,6 +80,7 @@ export default function App() {
   const [events, setEvents] = useState([]);
   const [isD1Connected, setIsD1Connected] = useState(false);
   const [isCMSOpen, setIsCMSOpen] = useState(false);
+  const [isEPKModalOpen, setIsEPKModalOpen] = useState(false);
   const [inquiries, setInquiries] = useState(() => {
     try {
       const stored = localStorage.getItem('ronald3d_inquiries');
@@ -311,6 +313,7 @@ export default function App() {
         onToggleAudio={handleTogglePlay}
         currentRoute={currentRoute}
         onNavigate={navigateToRoute}
+        onOpenEPKModal={() => setIsEPKModalOpen(true)}
       />
 
       {/* Main Content: Conditional Route Views */}
@@ -319,6 +322,7 @@ export default function App() {
           <PressKitGalleryPage
             onOpenLightbox={handleOpenLightbox}
             onBackToHome={() => navigateToRoute('/')}
+            onOpenEPKModal={() => setIsEPKModalOpen(true)}
           />
         </main>
       ) : (
@@ -427,6 +431,11 @@ export default function App() {
       </footer>
 
       {/* Modals & Notifications */}
+      <EPKRiderModal
+        isOpen={isEPKModalOpen}
+        onClose={() => setIsEPKModalOpen(false)}
+      />
+
       <LightboxModal
         isOpen={lightboxData.isOpen}
         onClose={handleCloseLightbox}
