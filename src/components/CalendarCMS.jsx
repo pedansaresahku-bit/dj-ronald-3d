@@ -5,15 +5,10 @@ import {
   ChevronLeft, 
   ChevronRight, 
   MapPin, 
-  Info, 
-  ArrowUpRight, 
   Sparkles, 
   Zap, 
-  Check, 
   ExternalLink, 
   X, 
-  Clock, 
-  Share2, 
   Ticket,
   Sliders
 } from 'lucide-react';
@@ -73,7 +68,6 @@ export default function CalendarCMS({
 
   const monthDays = useMemo(() => {
     const days = [];
-    const now = new Date();
     const isThisCurrentRealMonth = (currentYear === 2026 && currentMonth === 8); // Sept 2026
 
     for (let day = 1; day <= daysInMonth; day++) {
@@ -113,7 +107,7 @@ export default function CalendarCMS({
   };
 
   return (
-    <section id="kalender" className="py-20 relative z-10 bg-[#060507]">
+    <section id="kalender" className="py-20 relative z-10 bg-obsidian">
       <div className="w-[94%] max-w-[1600px] mx-auto">
         
         {/* Top Header & Month Switcher Bar */}
@@ -133,20 +127,20 @@ export default function CalendarCMS({
             <button
               onClick={handlePrevMonth}
               aria-label="Previous Month"
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/15 text-gray-300 flex items-center justify-center hover:bg-white/10 hover:text-white hover:border-amber-400/50 transition-all"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/15 text-gray-300 flex items-center justify-center hover:bg-white/10 hover:text-white hover:border-cyan/50 transition-all"
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
 
             {/* Current Month & Year Display Pill */}
-            <div className="px-5 py-2.5 rounded-full bg-[#12131a] border border-white/15 flex items-center gap-2.5 shadow-inner">
+            <div className="px-5 py-2.5 rounded-full bg-obsidian-surface border border-white/15 flex items-center gap-2.5 shadow-inner">
               <span className="font-display font-extrabold text-xs sm:text-sm tracking-wider text-white">
                 {monthNames[currentMonth]} {currentYear}
               </span>
               
               {/* NOW Badge if viewing September 2026 */}
               {currentYear === 2026 && currentMonth === 8 && (
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-amber-400 text-black tracking-wider uppercase">
+                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-cyan text-black tracking-wider uppercase">
                   NOW
                 </span>
               )}
@@ -156,7 +150,7 @@ export default function CalendarCMS({
             <button
               onClick={handleNextMonth}
               aria-label="Next Month"
-              className="w-10 h-10 rounded-full bg-white/5 border border-white/15 text-gray-300 flex items-center justify-center hover:bg-white/10 hover:text-white hover:border-amber-400/50 transition-all"
+              className="w-10 h-10 rounded-full bg-white/5 border border-white/15 text-gray-300 flex items-center justify-center hover:bg-white/10 hover:text-white hover:border-cyan/50 transition-all"
             >
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -166,7 +160,7 @@ export default function CalendarCMS({
               <button
                 onClick={onOpenCMS}
                 title="Kelola Event (Cloudflare D1 CMS)"
-                className="w-10 h-10 ml-2 rounded-full bg-cyan/10 border border-cyan/30 text-cyan flex items-center justify-center hover:bg-cyan hover:text-black transition-all"
+                className="w-10 h-10 ml-2 rounded-full bg-cyan/10 border border-cyan/30 text-cyan flex items-center justify-center hover:bg-cyan hover:text-black transition-all shadow-sm"
               >
                 <Sliders className="w-4 h-4" />
               </button>
@@ -192,8 +186,8 @@ export default function CalendarCMS({
                   onClick={() => handleCardClick(dayItem)}
                   className={`relative p-3.5 sm:p-4 rounded-2xl flex flex-col justify-between h-[165px] sm:h-[175px] cursor-pointer transition-all duration-300 select-none group ${
                     dayItem.isToday
-                      ? 'bg-gradient-to-b from-[#18160f] to-[#0c0d12] border-[1.5px] border-amber-400 shadow-[0_0_20px_rgba(250,204,21,0.25)]'
-                      : 'bg-[#0d0e14] border-[1.5px] border-amber-400/80 hover:border-amber-400 hover:shadow-[0_0_20px_rgba(250,204,21,0.2)]'
+                      ? 'bg-gradient-to-b from-[#0a1824] to-[#0c0e18] border-[1.5px] border-cyan shadow-[0_0_20px_rgba(0,240,255,0.3)]'
+                      : 'bg-obsidian-surface/90 border-[1.5px] border-cyan/40 hover:border-cyan hover:shadow-[0_0_20px_rgba(0,240,255,0.25)]'
                   }`}
                 >
                   {/* Card Header */}
@@ -206,7 +200,7 @@ export default function CalendarCMS({
                         {dayItem.monthStr}
                       </span>
                       {dayItem.isToday && (
-                        <span className="ml-1.5 px-1.5 py-0.5 rounded text-[9px] font-mono font-black bg-amber-400 text-black flex items-center gap-0.5 uppercase shadow-sm">
+                        <span className="ml-1.5 px-1.5 py-0.5 rounded text-[9px] font-mono font-black bg-cyan text-black flex items-center gap-0.5 uppercase shadow-sm">
                           <Zap className="w-2.5 h-2.5 fill-black" />
                           TODAY
                         </span>
@@ -220,12 +214,12 @@ export default function CalendarCMS({
 
                   {/* Card Middle (City & Venue Name) */}
                   <div className="my-auto py-1">
-                    <div className="text-[10px] font-mono font-bold text-amber-400 tracking-wider flex items-center gap-1 uppercase truncate">
-                      <MapPin className="w-3 h-3 text-amber-400 shrink-0" />
+                    <div className="text-[10px] font-mono font-bold text-cyan tracking-wider flex items-center gap-1 uppercase truncate">
+                      <MapPin className="w-3 h-3 text-cyan shrink-0" />
                       <span>{ev.city || 'INDONESIA'}</span>
                     </div>
 
-                    <h4 className="font-display font-extrabold text-xs sm:text-sm text-white tracking-wide truncate mt-0.5 group-hover:text-amber-300 transition-colors uppercase">
+                    <h4 className="font-display font-extrabold text-xs sm:text-sm text-white tracking-wide truncate mt-0.5 group-hover:text-cyan transition-colors uppercase">
                       {ev.title || ev.venue || 'HEADLINE'}
                     </h4>
 
@@ -246,7 +240,7 @@ export default function CalendarCMS({
                         e.stopPropagation();
                         setSelectedEvent(ev);
                       }}
-                      className="text-[10px] font-mono font-bold text-amber-400 hover:text-amber-300 flex items-center gap-0.5 transition-colors uppercase"
+                      className="text-[10px] font-mono font-bold text-cyan hover:text-white flex items-center gap-0.5 transition-colors uppercase"
                     >
                       <span>DETAIL</span>
                       <span className="text-xs">ⓘ</span>
@@ -260,7 +254,7 @@ export default function CalendarCMS({
                 <div
                   key={dayItem.dateKey}
                   onClick={() => handleCardClick(dayItem)}
-                  className="p-3.5 sm:p-4 rounded-2xl bg-[#09090e]/70 border border-white/5 hover:border-white/20 transition-all flex flex-col justify-between h-[165px] sm:h-[175px] cursor-pointer group"
+                  className="p-3.5 sm:p-4 rounded-2xl bg-[#09090e]/70 border border-white/5 hover:border-cyan/30 transition-all flex flex-col justify-between h-[165px] sm:h-[175px] cursor-pointer group"
                 >
                   {/* Card Header */}
                   <div className="flex items-center justify-between">
@@ -290,10 +284,10 @@ export default function CalendarCMS({
 
                   {/* Card Footer */}
                   <div className="flex items-center justify-between pt-1 border-t border-white/5">
-                    <span className="text-[10px] font-mono text-gray-400 group-hover:text-amber-400 transition-colors uppercase tracking-wider">
+                    <span className="text-[10px] font-mono text-gray-400 group-hover:text-cyan transition-colors uppercase tracking-wider">
                       INQUIRE
                     </span>
-                    <ChevronRight className="w-3.5 h-3.5 text-gray-600 group-hover:text-amber-400 group-hover:translate-x-0.5 transition-all" />
+                    <ChevronRight className="w-3.5 h-3.5 text-gray-600 group-hover:text-cyan group-hover:translate-x-0.5 transition-all" />
                   </div>
                 </div>
               );
@@ -306,7 +300,7 @@ export default function CalendarCMS({
           
           {/* Synchronized WIB Note */}
           <div className="flex items-center gap-2 text-xs sm:text-sm font-light text-gray-400">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-400 shadow-[0_0_8px_rgba(250,204,21,0.8)] shrink-0" />
+            <span className="w-2.5 h-2.5 rounded-full bg-cyan shadow-[0_0_10px_rgba(0,240,255,0.8)] shrink-0" />
             <span>
               Automated perpetual calendar synced with WIB (GMT+7). Confirmed gigs are highlighted; open dates are available for festival and club booking inquiries.
             </span>
@@ -315,7 +309,7 @@ export default function CalendarCMS({
           {/* Request Event Date Button */}
           <button
             onClick={handleRequestEventDate}
-            className="w-full sm:w-auto px-7 py-3 rounded-full bg-amber-400 hover:bg-amber-300 text-black font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-amber-400/25 transition-all hover:scale-105 active:scale-95 shrink-0"
+            className="w-full sm:w-auto px-7 py-3 rounded-full bg-cyan hover:bg-cyan/90 text-black font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-cyan/25 transition-all hover:scale-105 active:scale-95 shrink-0"
           >
             REQUEST EVENT DATE
           </button>
@@ -333,12 +327,12 @@ export default function CalendarCMS({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.92 }}
               transition={{ duration: 0.2 }}
-              className="relative w-full max-w-2xl rounded-3xl bg-[#0e0f17] border border-amber-400/50 shadow-2xl overflow-hidden"
+              className="relative w-full max-w-2xl rounded-3xl bg-[#0e0f17] border border-cyan/40 shadow-2xl overflow-hidden"
             >
               {/* Close Button */}
               <button
                 onClick={() => setSelectedEvent(null)}
-                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-amber-400 hover:text-black transition-all"
+                className="absolute top-4 right-4 z-10 w-9 h-9 rounded-full bg-black/60 text-white flex items-center justify-center hover:bg-cyan hover:text-black transition-all"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -348,7 +342,7 @@ export default function CalendarCMS({
                 
                 {/* Header Tag */}
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-amber-400/10 text-amber-400 border border-amber-400/30 uppercase flex items-center gap-1">
+                  <span className="px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-cyan/10 text-cyan border border-cyan/30 uppercase flex items-center gap-1">
                     <Sparkles className="w-3.5 h-3.5" />
                     CONFIRMED TOUR GIG
                   </span>
@@ -363,7 +357,7 @@ export default function CalendarCMS({
                 </h3>
 
                 <p className="text-sm sm:text-base text-gray-300 mb-6 flex items-center gap-2">
-                  <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
+                  <MapPin className="w-4 h-4 text-cyan shrink-0" />
                   <span>{selectedEvent.venue || selectedEvent.city}, {selectedEvent.country || 'Indonesia'}</span>
                 </p>
 
@@ -400,9 +394,9 @@ export default function CalendarCMS({
                       href={selectedEvent.mapsUrl || `https://maps.google.com/?q=${encodeURIComponent(selectedEvent.city + ' ' + selectedEvent.title)}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-mono font-bold text-gray-200 border border-white/10 hover:border-amber-400/40 transition-all"
+                      className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-xs font-mono font-bold text-gray-200 border border-white/10 hover:border-cyan/40 transition-all"
                     >
-                      <MapPin className="w-3.5 h-3.5 text-amber-400" />
+                      <MapPin className="w-3.5 h-3.5 text-cyan" />
                       <span>Buka Lokasi Google Maps</span>
                       <ExternalLink className="w-3 h-3 text-gray-400" />
                     </a>
@@ -416,7 +410,7 @@ export default function CalendarCMS({
                       if (onRSVP) onRSVP(`${selectedEvent.title} (${selectedEvent.city})`);
                       setSelectedEvent(null);
                     }}
-                    className="w-full sm:flex-1 py-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-amber-400/20 transition-all flex items-center justify-center gap-2"
+                    className="w-full sm:flex-1 py-3 rounded-xl bg-cyan hover:bg-cyan/90 text-black font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-cyan/20 transition-all flex items-center justify-center gap-2"
                   >
                     <Ticket className="w-4 h-4" />
                     <span>RSVP / TICKET INQUIRY</span>
@@ -477,7 +471,7 @@ export default function CalendarCMS({
                     setSelectedOpenDate(null);
                     handleRequestEventDate();
                   }}
-                  className="w-full py-3.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-amber-400/20 transition-all flex items-center justify-center gap-2"
+                  className="w-full py-3.5 rounded-xl bg-cyan hover:bg-cyan/90 text-black font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-cyan/20 transition-all flex items-center justify-center gap-2"
                 >
                   <CalendarIcon className="w-4 h-4" />
                   <span>Book Tanggal {selectedOpenDate.dayString} {selectedOpenDate.monthStr} Sekarang</span>

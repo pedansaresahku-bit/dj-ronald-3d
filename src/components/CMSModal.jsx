@@ -7,17 +7,10 @@ import {
   Plus, 
   Edit3, 
   Trash2, 
-  Calendar, 
-  MapPin, 
   Sparkles, 
   Upload, 
-  Check, 
   AlertCircle,
-  Building,
-  Mail,
-  User,
-  Clock,
-  ArrowRight
+  RotateCcw
 } from 'lucide-react';
 
 export default function CMSModal({ 
@@ -211,7 +204,7 @@ export default function CMSModal({
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.94, opacity: 0, y: 20 }}
           transition={{ duration: 0.2 }}
-          className="relative z-10 w-full max-w-2xl rounded-3xl bg-[#090a0f] border border-white/10 shadow-2xl overflow-hidden my-auto flex flex-col max-h-[92vh]"
+          className="relative z-10 w-full max-w-2xl rounded-3xl bg-obsidian-surface border border-white/10 shadow-2xl overflow-hidden my-auto flex flex-col max-h-[92vh]"
         >
 
           {/* ========================================================================= */}
@@ -223,8 +216,8 @@ export default function CMSModal({
               {/* Header Top Bar */}
               <div className="flex items-center justify-between border-b border-white/5 pb-5">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amber-400/10 border border-amber-400/40 text-amber-400 flex items-center justify-center shadow-[0_0_12px_rgba(250,204,21,0.2)]">
-                    <Lock className="w-4 h-4 text-amber-400" />
+                  <div className="w-10 h-10 rounded-full bg-cyan/10 border border-cyan/40 text-cyan flex items-center justify-center shadow-[0_0_12px_rgba(0,240,255,0.2)]">
+                    <Lock className="w-4 h-4 text-cyan" />
                   </div>
                   <div>
                     <h3 className="font-display font-black text-sm sm:text-base text-white tracking-wider uppercase">
@@ -248,8 +241,8 @@ export default function CMSModal({
               <div className="flex flex-col items-center text-center my-auto py-8">
                 
                 {/* Glowing Center Lock Icon */}
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-b from-[#18160f] to-[#0c0d12] border-2 border-amber-400 shadow-[0_0_30px_rgba(250,204,21,0.3)] flex items-center justify-center mb-6">
-                  <Lock className="w-7 h-7 text-amber-400" />
+                <div className="w-16 h-16 rounded-2xl bg-gradient-to-b from-[#0a1824] to-[#0c0e18] border-2 border-cyan shadow-[0_0_30px_rgba(0,240,255,0.3)] flex items-center justify-center mb-6">
+                  <Lock className="w-7 h-7 text-cyan" />
                 </div>
 
                 <h2 className="font-display font-black text-xl sm:text-2xl text-white tracking-wider uppercase mb-2">
@@ -270,7 +263,7 @@ export default function CMSModal({
                       placeholder="masukan password anda disini"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full px-5 py-3.5 rounded-2xl bg-[#0e0f17] border-2 border-amber-400 text-center text-xs sm:text-sm text-white placeholder:text-gray-600 focus:outline-none focus:shadow-[0_0_20px_rgba(250,204,21,0.25)] transition-all font-mono"
+                      className="w-full px-5 py-3.5 rounded-2xl bg-black/50 border-2 border-cyan/50 text-center text-xs sm:text-sm text-white placeholder:text-gray-600 focus:outline-none focus:border-cyan focus:shadow-[0_0_20px_rgba(0,240,255,0.25)] transition-all font-mono"
                     />
                   </div>
 
@@ -283,7 +276,7 @@ export default function CMSModal({
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 rounded-2xl bg-amber-400 hover:bg-amber-300 text-black font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-amber-400/25 transition-all hover:scale-[1.01] active:scale-98 cursor-pointer"
+                    className="w-full py-3.5 rounded-2xl bg-cyan hover:bg-cyan/90 text-black font-display font-extrabold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-cyan/25 transition-all hover:scale-[1.01] active:scale-98 cursor-pointer"
                   >
                     LOGIN CMS
                   </button>
@@ -308,15 +301,15 @@ export default function CMSModal({
               {/* Header Top Bar */}
               <div className="flex items-center justify-between border-b border-white/5 pb-4 mb-5 shrink-0">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-amber-400/10 border border-amber-400/40 text-amber-400 flex items-center justify-center shadow-[0_0_12px_rgba(250,204,21,0.2)]">
-                    <Lock className="w-4 h-4 text-amber-400" />
+                  <div className="w-10 h-10 rounded-full bg-cyan/10 border border-cyan/40 text-cyan flex items-center justify-center shadow-[0_0_12px_rgba(0,240,255,0.2)]">
+                    <Lock className="w-4 h-4 text-cyan" />
                   </div>
                   <div>
                     <h3 className="font-display font-black text-sm sm:text-base text-white tracking-wider uppercase">
                       RONALD 3D // MANAGEMENT CMS
                     </h3>
                     <p className="text-[11px] font-mono text-gray-400">
-                      Live Event & Promoter Management Dashboard
+                      Live Event & Promoter Management Dashboard {isD1Connected && <span className="text-cyan">• D1 Connected</span>}
                     </p>
                   </div>
                 </div>
@@ -349,7 +342,7 @@ export default function CMSModal({
                     }}
                     className={`px-4 py-2 rounded-xl text-xs font-display font-extrabold tracking-wider transition-all uppercase ${
                       activeTab === 'calendar'
-                        ? 'bg-amber-400 text-black shadow-md shadow-amber-400/20'
+                        ? 'bg-cyan text-black shadow-md shadow-cyan/20'
                         : 'bg-white/5 text-gray-400 hover:text-white border border-white/5'
                     }`}
                   >
@@ -363,7 +356,7 @@ export default function CMSModal({
                     }}
                     className={`px-4 py-2 rounded-xl text-xs font-display font-extrabold tracking-wider transition-all uppercase ${
                       activeTab === 'inquiries'
-                        ? 'bg-amber-400 text-black shadow-md shadow-amber-400/20'
+                        ? 'bg-cyan text-black shadow-md shadow-cyan/20'
                         : 'bg-white/5 text-gray-400 hover:text-white border border-white/5'
                     }`}
                   >
@@ -372,13 +365,25 @@ export default function CMSModal({
                 </div>
 
                 {activeTab === 'calendar' && currentView === 'list' && (
-                  <button
-                    onClick={handleOpenAdd}
-                    className="px-4 py-2 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-display font-extrabold text-xs tracking-wider flex items-center gap-1.5 shadow-md shadow-amber-400/20 transition-all uppercase self-start sm:self-auto"
-                  >
-                    <Plus className="w-4 h-4 stroke-[3]" />
-                    <span>ADD NEW EVENT</span>
-                  </button>
+                  <div className="flex items-center gap-2 self-start sm:self-auto">
+                    {onResetDefaults && (
+                      <button
+                        onClick={onResetDefaults}
+                        title="Kembalikan jadwal default 20 tur"
+                        className="px-3 py-2 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white font-mono text-xs border border-white/10 flex items-center gap-1.5 transition-all"
+                      >
+                        <RotateCcw className="w-3.5 h-3.5" />
+                        <span className="hidden sm:inline">RESET</span>
+                      </button>
+                    )}
+                    <button
+                      onClick={handleOpenAdd}
+                      className="px-4 py-2 rounded-xl bg-cyan hover:bg-cyan/90 text-black font-display font-extrabold text-xs tracking-wider flex items-center gap-1.5 shadow-md shadow-cyan/20 transition-all uppercase"
+                    >
+                      <Plus className="w-4 h-4 stroke-[3]" />
+                      <span>ADD NEW EVENT</span>
+                    </button>
+                  </div>
                 )}
               </div>
 
@@ -397,7 +402,7 @@ export default function CMSModal({
                       return (
                         <div
                           key={ev.id || idx}
-                          className="p-3 sm:p-3.5 rounded-2xl bg-[#0c0d12] border border-white/5 hover:border-amber-400/40 transition-all flex items-center justify-between gap-3 group"
+                          className="p-3 sm:p-3.5 rounded-2xl bg-black/40 border border-white/5 hover:border-cyan/40 transition-all flex items-center justify-between gap-3 group"
                         >
                           {/* Left: Thumbnail & Info */}
                           <div className="flex items-center gap-3.5 min-w-0">
@@ -413,7 +418,7 @@ export default function CMSModal({
                             {/* Date Badge + Title + Country */}
                             <div className="min-w-0">
                               <div className="flex items-center gap-2 mb-0.5">
-                                <span className="px-2 py-0.5 rounded text-[9px] font-mono font-black bg-amber-400/10 text-amber-400 border border-amber-400/30 uppercase">
+                                <span className="px-2 py-0.5 rounded text-[9px] font-mono font-black bg-cyan/10 text-cyan border border-cyan/30 uppercase">
                                   DAY {dayNumber}
                                 </span>
                                 <span className="text-xs font-mono text-gray-400">
@@ -422,7 +427,7 @@ export default function CMSModal({
                               </div>
 
                               <h4 className="font-display font-black text-sm text-white truncate uppercase tracking-wide">
-                                {ev.title} — <span className="text-amber-400">{ev.country || 'INDONESIA'}</span>
+                                {ev.title} — <span className="text-cyan">{ev.country || 'INDONESIA'}</span>
                               </h4>
                             </div>
                           </div>
@@ -431,7 +436,7 @@ export default function CMSModal({
                           <div className="flex items-center gap-2 shrink-0">
                             <button
                               onClick={() => handleOpenEdit(ev)}
-                              className="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-amber-400 border border-white/5 flex items-center justify-center transition-all"
+                              className="w-9 h-9 rounded-xl bg-white/5 hover:bg-white/10 text-gray-300 hover:text-cyan border border-white/5 flex items-center justify-center transition-all"
                               title="Edit Event"
                             >
                               <Edit3 className="w-4 h-4" />
@@ -463,10 +468,10 @@ export default function CMSModal({
                     inquiries.map((inq, idx) => (
                       <div
                         key={idx}
-                        className="p-4 rounded-2xl bg-[#0c0d12] border border-white/5 flex flex-col gap-2"
+                        className="p-4 rounded-2xl bg-black/40 border border-white/5 flex flex-col gap-2"
                       >
                         <div className="flex items-center justify-between">
-                          <span className="text-xs font-bold text-amber-400 font-display uppercase">{inq.eventName}</span>
+                          <span className="text-xs font-bold text-cyan font-display uppercase">{inq.eventName}</span>
                           <span className="text-[11px] font-mono text-gray-400">{inq.eventDate || 'Date TBD'}</span>
                         </div>
                         <div className="text-xs text-gray-300">
@@ -492,7 +497,7 @@ export default function CMSModal({
                   {/* Form Section Header */}
                   <div className="flex items-center justify-between pb-2 border-b border-white/5">
                     <div className="flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-amber-400" />
+                      <Sparkles className="w-4 h-4 text-cyan" />
                       <h3 className="font-display font-black text-sm sm:text-base text-white uppercase tracking-wider">
                         {isEditing ? 'EDIT EVENT' : 'ADD NEW EVENT'}
                       </h3>
@@ -514,7 +519,7 @@ export default function CMSModal({
                         TANGGAL ACARA (DD/MM/YYYY) *
                       </label>
                       <div className="flex items-center gap-2">
-                        <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-amber-400/15 text-amber-400 border border-amber-400/30">
+                        <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-cyan/15 text-cyan border border-cyan/30">
                           {formatDateDDMMYYYY(formData.date)}
                         </span>
                         <span className="text-[10px] font-mono text-gray-500 uppercase">
@@ -529,7 +534,7 @@ export default function CMSModal({
                         required
                         value={formData.date}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                        className="w-full px-4 py-3 rounded-2xl bg-[#0c0d12] border border-white/10 text-xs sm:text-sm text-white focus:border-amber-400 focus:outline-none transition-colors font-mono"
+                        className="w-full px-4 py-3 rounded-2xl bg-black/50 border border-white/10 text-xs sm:text-sm text-white focus:border-cyan focus:outline-none transition-colors font-mono"
                       />
                     </div>
                   </div>
@@ -546,7 +551,7 @@ export default function CMSModal({
                         placeholder="e.g. W CLUB SAMARINDA"
                         value={formData.title}
                         onChange={(e) => setFormData({ ...formData, title: e.target.value.toUpperCase() })}
-                        className="w-full px-4 py-3 rounded-2xl bg-[#0c0d12] border border-white/10 text-xs sm:text-sm text-white focus:border-amber-400 focus:outline-none transition-colors uppercase font-display font-bold"
+                        className="w-full px-4 py-3 rounded-2xl bg-black/50 border border-white/10 text-xs sm:text-sm text-white focus:border-cyan focus:outline-none transition-colors uppercase font-display font-bold"
                       />
                     </div>
 
@@ -560,13 +565,13 @@ export default function CMSModal({
                         placeholder="e.g. SAMARINDA"
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value.toUpperCase() })}
-                        className="w-full px-4 py-3 rounded-2xl bg-[#0c0d12] border border-white/10 text-xs sm:text-sm text-white focus:border-amber-400 focus:outline-none transition-colors uppercase font-mono font-semibold"
+                        className="w-full px-4 py-3 rounded-2xl bg-black/50 border border-white/10 text-xs sm:text-sm text-white focus:border-cyan focus:outline-none transition-colors uppercase font-mono font-semibold"
                       />
                     </div>
                   </div>
 
                   {/* Field 4: Flyer Image Box */}
-                  <div className="p-4 rounded-2xl bg-[#0c0d12] border border-white/10 flex flex-col sm:flex-row items-center gap-4">
+                  <div className="p-4 rounded-2xl bg-black/40 border border-white/10 flex flex-col sm:flex-row items-center gap-4">
                     {/* Thumbnail Image */}
                     <div className="w-20 h-20 rounded-2xl overflow-hidden bg-black/60 border border-white/10 shrink-0">
                       <img
@@ -578,7 +583,7 @@ export default function CMSModal({
 
                     {/* Flyer Upload Controls */}
                     <div className="flex-1 text-center sm:text-left">
-                      <h4 className="text-xs font-display font-extrabold text-amber-400 uppercase tracking-wide mb-0.5">
+                      <h4 className="text-xs font-display font-extrabold text-cyan uppercase tracking-wide mb-0.5">
                         UPLOAD EVENT FLYER POSTER IMAGE
                       </h4>
                       <p className="text-[11px] text-gray-400 font-light mb-3">
@@ -614,7 +619,7 @@ export default function CMSModal({
                       placeholder="Add special notes, guest details, or event highlights..."
                       value={formData.description}
                       onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                      className="w-full px-4 py-3 rounded-2xl bg-[#0c0d12] border border-white/10 text-xs text-white focus:border-amber-400 focus:outline-none transition-colors resize-none font-sans"
+                      className="w-full px-4 py-3 rounded-2xl bg-black/50 border border-white/10 text-xs text-white focus:border-cyan focus:outline-none transition-colors resize-none font-sans"
                     />
                   </div>
 
@@ -630,7 +635,7 @@ export default function CMSModal({
 
                     <button
                       type="submit"
-                      className="px-6 py-2.5 rounded-xl bg-amber-400 hover:bg-amber-300 text-black font-display font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-amber-400/20 transition-all hover:scale-105 active:scale-95"
+                      className="px-6 py-2.5 rounded-xl bg-cyan hover:bg-cyan/90 text-black font-display font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-cyan/20 transition-all hover:scale-105 active:scale-95"
                     >
                       PUBLISH EVENT
                     </button>
