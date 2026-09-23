@@ -26,41 +26,44 @@ export default function EPKRiderModal({ isOpen, onClose }) {
 
   const handleDownloadTxt = () => {
     const content = `=====================================================
-OFFICIAL EPK & TECHNICAL HOSPITALITY RIDER 2026
-DJ RONALD 3D (INDONESIA)
-Instagram: @ronald_3d
+Ronald 3D — OFFICIAL RATECARD & RIDERS 2026
+Artist: Ronald 3D
+Title: INDONESIAN BREAKBEAT DJ'S & ELECTRONIC MUSIC PRODUCER
+WhatsApp: +62 812-3456-7890
+Instagram DM: https://www.instagram.com/ronald_3d/
+Management Desk: booking@ronald3d.com
 =====================================================
 
-[ 1. HOSPITALITY & TERMS RIDER ]
-- 2x Return Flight Tickets (Garuda Indonesia / Citilink / Batik Air)
-- 1x Hotel 4 Stars Minimum (Non-Smoking Deluxe Room)
-- 1x Bottle Martell / Codigo (Backstage Hospitality)
-- 5x Mineral Water 600ml
-- Mix Fruit Platter & Snacks Platter
-- Meal Allowance 2 Pack (Daily Per-Diem)
-- Down Payment 20% upon contract signing / date lock
-- Full Payment (Balance 80%) settlement H-1 before performance
+[ BOOKING & PERFORMANCE SCOPE ]
+- JAKARTA & METROPOLITAN AREA
+- BANDUNG & REGIONAL EVENT
+- LUAR KOTA / NATIONAL & ASIA FESTIVAL TOUR
 
-[ 2. TECHNICAL DECK SETUP (STAGE EQUIPMENT) ]
-- Deck Players: 4x Pioneer CDJ-3000 / CDJ-2000NXS2 (Link LAN Connected)
-- Mixer Console: 1x Pioneer DJM-A9 / DJM-V10 / DJM-900NXS2
-- Booth Monitors: 2x Active Stage Monitors (d&b audiotechnik / L-Acoustics) with separate booth volume
-- Visual & Sync: HDMI / SDI Direct Output for 3D Hologram Video Mapping
-- Power: 2x 220V Grounded Sockets on DJ Booth
+* Rate resmi disesuaikan dengan skala acara, lokasi, dan tanggal penampilan.
+* Hubungi Manager DJ Ronald 3D untuk penawaran resmi.
 
-[ 3. RATE & BOOKING NOTE ]
-- Note: Rate honorarium menyesuaikan dengan skala acara, kapasitas venue, dan lokasi tour.
-- Official Booking & Inquiry: Instagram Direct Message @ronald_3d
+-----------------------------------------------------
+[ 1. HOSPITALITY & TERMS RIDERS ]
+- Flight & Transport: 2 Ticket (Garuda / Citilink / Batik)
+- Accommodation: Hotel 4 Stars (Non-Smoking)
+- Beverages: 1 Bottle Martell / Codigo
+- Refreshments: 5 Mineral Water
+- Snacks: Mix Platter & Fruits Platter
+- Meal Allowance: 2 Pack
+- Payment Terms: DP 20%, Full Payment H-1
 
-=====================================================
-© 2026 DJ Ronald 3D Management. All Rights Reserved.
+-----------------------------------------------------
+[ 2. TECHNICAL DECK SETUP (EQUIPMENT) ]
+- Pioneer CDJ-2000 / 3000
+- Pioneer DJM-A9
+
 =====================================================`;
 
     const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
     link.href = url;
-    link.download = 'DJ_Ronald3D_Official_Rider_2026.txt';
+    link.download = 'Ronald3D_Official_Ratecard_Riders_2026.txt';
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
