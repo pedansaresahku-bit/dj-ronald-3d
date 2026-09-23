@@ -29,25 +29,25 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
   }, [handleNext, timerKey]);
 
   return (
-    <section id="stage-gallery" className="py-20 relative z-10 overflow-hidden bg-obsidian">
+    <section id="stage-gallery" className="py-20 relative z-10 overflow-hidden bg-[#141414]">
 
       {/* Subtle Ambient Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[380px] h-[120px] bg-cyan/10 rounded-full blur-3xl pointer-events-none z-0" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[380px] h-[120px] bg-[#E2E800]/10 rounded-full blur-3xl pointer-events-none z-0" />
 
       <div className="w-[92%] max-w-[1560px] mx-auto relative z-10">
 
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan/10 border border-cyan/30 text-cyan text-xs font-mono font-semibold uppercase mb-3">
-            <Camera className="w-3.5 h-3.5 text-cyan" />
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#E2E800]/15 border border-[#E2E800]/40 text-[#E2E800] text-xs font-mono font-bold uppercase mb-3 shadow-md shadow-[#E2E800]/15">
+            <Camera className="w-3.5 h-3.5 text-[#E2E800]" />
             <span>PRESS KIT GALLERY &bull; 3D SLIDE</span>
           </div>
 
           <h2 className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mb-3">
-            Press Kit <span className="bg-gradient-to-r from-white via-cyan to-purple bg-clip-text text-transparent">Galery</span>
+            Press Kit <span className="bg-gradient-to-r from-white via-[#E2E800] to-[#979797] bg-clip-text text-transparent">Galery</span>
           </h2>
 
-          <p className="text-gray-400 text-sm sm:text-base font-light mb-5">
+          <p className="text-[#D6D6D6] text-sm sm:text-base font-normal mb-5">
             Dokumentasi visual panggung dan performa live Ronald 3D dengan tampilan 3D bersih dan beresolusi tinggi.
           </p>
 
@@ -55,7 +55,7 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
           <div className="flex items-center justify-center">
             <button
               onClick={onViewAllGallery}
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cyan/10 hover:bg-cyan hover:text-black border border-cyan/40 text-cyan text-xs font-mono font-bold uppercase tracking-wider shadow-lg shadow-cyan/10 hover:shadow-cyan/30 transition-all hover:scale-105 active:scale-95 group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1e1e1e] hover:bg-[#E2E800] hover:text-[#141414] border border-[#444444] hover:border-[#E2E800] text-[#D6D6D6] hover:text-[#141414] text-xs font-mono font-bold uppercase tracking-wider shadow-lg hover:shadow-[#E2E800]/30 transition-all hover:scale-105 active:scale-95 group"
             >
               <span>Lihat Semua ({photos.length} Foto)</span>
               <ArrowUpRight className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
@@ -103,8 +103,8 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
                     }
                   }}
                   className={`absolute top-0 bottom-0 my-auto w-[270px] sm:w-[350px] md:w-[420px] h-[360px] sm:h-[440px] md:h-[490px] rounded-2xl overflow-hidden cursor-pointer group transition-all duration-500 ease-out gpu-accel ${isCurrent
-                    ? 'border-2 border-cyan shadow-[0_0_30px_rgba(0,240,255,0.3)] ring-2 ring-cyan/20'
-                    : 'border border-white/10 hover:border-white/30 brightness-75 hover:brightness-100'
+                    ? 'border-2 border-[#E2E800] shadow-[0_0_30px_rgba(226,232,0,0.4)] ring-2 ring-[#E2E800]/25'
+                    : 'border border-[#444444] hover:border-[#979797] brightness-75 hover:brightness-100'
                     }`}
                   style={{
                     transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
@@ -130,7 +130,7 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
                           e.stopPropagation();
                           onOpenLightbox(photo.img, photo.title, photo.caption);
                         }}
-                        className="w-9 h-9 rounded-full bg-black/60 backdrop-blur-sm border border-cyan/40 text-cyan flex items-center justify-center hover:bg-cyan hover:text-black transition-all shadow-md"
+                        className="w-9 h-9 rounded-full bg-black/70 backdrop-blur-sm border border-[#E2E800]/50 text-[#E2E800] flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] transition-all shadow-md"
                         title="Zoom Fullscreen"
                       >
                         <Maximize2 className="w-4 h-4" />
@@ -149,7 +149,7 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
             <div className="flex items-center justify-center gap-4 sm:gap-6">
               <button
                 onClick={handlePrev}
-                className="w-10 h-10 rounded-full bg-obsidian-surface border border-white/15 text-white flex items-center justify-center hover:bg-cyan hover:text-black hover:border-cyan transition-all active:scale-95"
+                className="w-10 h-10 rounded-full bg-[#1e1e1e] border border-[#444444] text-[#FFFFFF] flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] hover:border-[#E2E800] transition-all active:scale-95"
                 aria-label="Previous Slide"
               >
                 <ChevronLeft className="w-5 h-5" />
@@ -165,8 +165,8 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
                       setTimerKey(prev => prev + 1);
                     }}
                     className={`h-2 rounded-full transition-all duration-300 ${dotIdx === activeIndex
-                      ? 'w-6 bg-cyan shadow-[0_0_8px_rgba(0,240,255,0.8)]'
-                      : 'w-2 bg-white/20 hover:bg-white/40'
+                      ? 'w-6 bg-[#E2E800] shadow-[0_0_8px_rgba(226,232,0,0.8)]'
+                      : 'w-2 bg-[#444444] hover:bg-[#979797]'
                       }`}
                     aria-label={`Go to slide ${dotIdx + 1}`}
                   />
@@ -175,7 +175,7 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
 
               <button
                 onClick={handleNext}
-                className="w-10 h-10 rounded-full bg-obsidian-surface border border-white/15 text-white flex items-center justify-center hover:bg-cyan hover:text-black hover:border-cyan transition-all active:scale-95"
+                className="w-10 h-10 rounded-full bg-[#1e1e1e] border border-[#444444] text-[#FFFFFF] flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] hover:border-[#E2E800] transition-all active:scale-95"
                 aria-label="Next Slide"
               >
                 <ChevronRight className="w-5 h-5" />
@@ -183,10 +183,10 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
             </div>
 
             {/* 10-Second Pure CSS Progress Bar (0 CPU overhead) */}
-            <div className="w-full max-w-xs sm:max-w-sm h-1 rounded-full bg-white/10 overflow-hidden">
+            <div className="w-full max-w-xs sm:max-w-sm h-1.5 rounded-full bg-[#444444] overflow-hidden">
               <div
                 key={timerKey}
-                className="h-full bg-gradient-to-r from-cyan to-purple animate-progress-10s"
+                className="h-full bg-[#E2E800] animate-progress-10s"
               />
             </div>
 

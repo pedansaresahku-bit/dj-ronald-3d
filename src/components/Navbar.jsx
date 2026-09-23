@@ -29,7 +29,7 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
 
   return (
     <header className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-8 py-3.5 flex justify-center pointer-events-none">
-      <div className="w-[92%] max-w-[1560px] mx-auto flex items-center justify-between p-2 sm:px-5 sm:py-2.5 rounded-full bg-obsidian-surface/90 backdrop-blur-2xl border border-white/20 shadow-2xl pointer-events-auto transition-all">
+      <div className="w-[92%] max-w-[1560px] mx-auto flex items-center justify-between p-2 sm:px-5 sm:py-2.5 rounded-full bg-[#141414]/90 backdrop-blur-2xl border border-[#444444] shadow-2xl pointer-events-auto transition-all">
 
         {/* Brand Logo */}
         <a
@@ -45,11 +45,11 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
             <img
               src="/asset/3d-logo.png"
               alt="Ronald 3D Logo"
-              className="w-full h-full object-contain drop-shadow-[0_0_12px_rgba(0,240,255,0.8)] group-hover:scale-105 transition-transform"
+              className="w-full h-full object-contain drop-shadow-[0_0_12px_rgba(226,232,0,0.8)] group-hover:scale-105 transition-transform"
             />
           </div>
-          <span className="font-display font-black text-base sm:text-lg tracking-wider text-white">
-            RONALD <span className="text-cyan drop-shadow-[0_0_14px_rgba(0,240,255,0.9)]">3D</span>
+          <span className="font-display font-black text-base sm:text-lg tracking-wider text-[#FFFFFF]">
+            RONALD <span className="text-[#E2E800] drop-shadow-[0_0_14px_rgba(226,232,0,0.9)]">3D</span>
           </span>
         </a>
 
@@ -61,10 +61,10 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
               href={currentRoute === '/galery' ? `/${link.href}` : link.href}
               onClick={(e) => handleLinkClick(e, link)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all ${link.highlight
-                ? 'bg-cyan text-black font-extrabold shadow-lg shadow-cyan/30 hover:bg-cyan/90 hover:scale-105'
+                ? 'bg-[#E2E800] text-[#141414] font-black shadow-lg shadow-[#E2E800]/30 hover:bg-[#f2f716] hover:scale-105'
                 : currentRoute === '/galery' && link.name === 'Press Kit Galery'
-                  ? 'bg-cyan text-black font-extrabold shadow-md'
-                  : 'text-slate-100 hover:text-cyan hover:bg-white/10'
+                  ? 'bg-[#E2E800] text-[#141414] font-black shadow-md'
+                  : 'text-[#D6D6D6] hover:text-[#E2E800] hover:bg-[#242424]'
                 }`}
             >
               {link.name}
@@ -78,15 +78,15 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
           <button
             onClick={onToggleAudio}
             className={`relative w-9 h-9 rounded-full flex items-center justify-center border transition-all ${isAudioActive
-              ? 'bg-cyan/25 border-cyan text-cyan shadow-[0_0_15px_rgba(0,240,255,0.6)]'
-              : 'bg-white/10 border-white/20 text-slate-200 hover:text-white hover:bg-white/20'
+              ? 'bg-[#E2E800]/25 border-[#E2E800] text-[#E2E800] shadow-[0_0_15px_rgba(226,232,0,0.6)]'
+              : 'bg-[#1e1e1e] border-[#444444] text-[#D6D6D6] hover:text-[#FFFFFF] hover:border-[#979797]'
               }`}
             title={isAudioActive ? 'Mute 3D Audio Experience' : 'Activate 3D Audio Experience'}
           >
             {isAudioActive ? (
               <>
-                <Volume2 className="w-4 h-4 text-cyan" />
-                <span className="absolute -inset-1 rounded-full border border-cyan/50 animate-ping opacity-75" />
+                <Volume2 className="w-4 h-4 text-[#E2E800]" />
+                <span className="absolute -inset-1 rounded-full border border-[#E2E800]/50 animate-ping opacity-75" />
               </>
             ) : (
               <VolumeX className="w-4 h-4" />
@@ -96,7 +96,7 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden w-9 h-9 rounded-full flex items-center justify-center bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all"
+            className="lg:hidden w-9 h-9 rounded-full flex items-center justify-center bg-[#1e1e1e] border border-[#444444] text-white hover:border-[#E2E800] transition-all"
             aria-label="Toggle Navigation Menu"
           >
             {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -112,7 +112,7 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -15, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="lg:hidden absolute top-16 left-4 right-4 z-50 p-4 rounded-3xl bg-obsidian-surface border border-white/20 shadow-2xl backdrop-blur-2xl pointer-events-auto"
+            className="lg:hidden absolute top-16 left-4 right-4 z-50 p-4 rounded-3xl bg-[#1e1e1e] border border-[#444444] shadow-2xl backdrop-blur-2xl pointer-events-auto"
           >
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => {
@@ -126,11 +126,11 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
                       handleLinkClick(e, link);
                     }}
                     className={`flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all ${link.highlight
-                      ? 'bg-gradient-to-r from-cyan to-blue-500 text-black shadow-lg shadow-cyan/20'
-                      : 'text-slate-100 hover:text-white hover:bg-white/10'
+                      ? 'bg-[#E2E800] text-[#141414] font-black shadow-lg shadow-[#E2E800]/20'
+                      : 'text-[#D6D6D6] hover:text-[#E2E800] hover:bg-[#242424]'
                       }`}
                   >
-                    <Icon className="w-4 h-4 text-cyan" />
+                    <Icon className="w-4 h-4 text-[#E2E800]" />
                     <span>{link.name}</span>
                   </a>
                 );

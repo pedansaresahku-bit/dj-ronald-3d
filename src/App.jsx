@@ -304,7 +304,7 @@ export default function App() {
   }, [isPlaying, activeTrackIndex]);
 
   return (
-    <div className="relative min-h-screen bg-obsidian text-white selection:bg-cyan selection:text-black">
+    <div className="relative min-h-screen bg-[#141414] text-[#D6D6D6] selection:bg-[#E2E800] selection:text-[#141414]">
       {/* Navigation Header */}
       <Navbar
         isAudioActive={isPlaying}
@@ -367,12 +367,12 @@ export default function App() {
       )}
 
       {/* Footer */}
-      <footer className="py-12 border-t border-white/10 bg-obsidian-surface/90 relative z-10">
+      <footer className="py-12 border-t border-[#444444] bg-[#141414] relative z-10">
         <div className="w-[92%] max-w-[1560px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div className="flex items-center gap-3">
-            <img src="/asset/3d-logo.png" alt="Ronald 3D" className="w-8 h-8 object-contain" />
-            <span className="font-display font-bold text-sm tracking-wider text-white">
-              RONALD <span className="text-cyan">3D</span> &copy; 2026
+            <img src="/asset/3d-logo.png" alt="Ronald 3D" className="w-8 h-8 object-contain drop-shadow-[0_0_8px_rgba(226,232,0,0.6)]" />
+            <span className="font-display font-black text-sm tracking-wider text-white">
+              RONALD <span className="text-[#E2E800]">3D</span> &copy; 2026
             </span>
           </div>
 
@@ -382,7 +382,7 @@ export default function App() {
               href="https://www.instagram.com/ronald_3d/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1 rounded-full bg-white/5 hover:bg-[#e1306c] hover:text-white border border-white/10 text-xs font-mono text-gray-300 transition-all"
+              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#e1306c] hover:text-white border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
             >
               Instagram
             </a>
@@ -390,7 +390,7 @@ export default function App() {
               href="https://www.youtube.com/c/Ronald3D"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1 rounded-full bg-white/5 hover:bg-[#ff0000] hover:text-white border border-white/10 text-xs font-mono text-gray-300 transition-all"
+              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#ff0000] hover:text-white border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
             >
               YouTube
             </a>
@@ -398,7 +398,7 @@ export default function App() {
               href="https://open.spotify.com/artist/3HkeKnw42As9Ag8BluG93o"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1 rounded-full bg-white/5 hover:bg-[#1db954] hover:text-black border border-white/10 text-xs font-mono text-gray-300 transition-all"
+              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#1db954] hover:text-black border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
             >
               Spotify
             </a>
@@ -406,7 +406,7 @@ export default function App() {
               href="https://soundcloud.com/ronald3d"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1 rounded-full bg-white/5 hover:bg-[#ff5500] hover:text-white border border-white/10 text-xs font-mono text-gray-300 transition-all"
+              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#ff5500] hover:text-white border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
             >
               SoundCloud
             </a>
@@ -414,13 +414,13 @@ export default function App() {
               href="https://www.tiktok.com/@ronald.3d"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1 rounded-full bg-white/5 hover:bg-cyan hover:text-black border border-white/10 text-xs font-mono text-gray-300 transition-all"
+              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#E2E800] hover:text-[#141414] border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
             >
               TikTok
             </a>
           </div>
 
-          <p className="text-xs text-gray-400 font-mono text-center md:text-right">
+          <p className="text-xs text-[#979797] font-mono text-center md:text-right">
             All Rights Reserved • Powered by React & Cloudflare D1
           </p>
         </div>

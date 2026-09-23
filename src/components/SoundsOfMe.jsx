@@ -57,9 +57,9 @@ export default function SoundsOfMe({
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-cyan/15 border border-cyan/40 text-cyan text-xs font-mono font-bold uppercase mb-3 shadow-md shadow-cyan/15"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E2E800]/15 border border-[#E2E800]/40 text-[#E2E800] text-xs font-mono font-bold uppercase mb-3 shadow-md shadow-[#E2E800]/15"
           >
-            <Radio className="w-3.5 h-3.5 text-cyan" />
+            <Radio className="w-3.5 h-3.5 text-[#E2E800]" />
             <span>SOUNDS OF RONALD 3D</span>
           </motion.div>
 
@@ -70,7 +70,7 @@ export default function SoundsOfMe({
             transition={{ delay: 0.1 }}
             className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-white tracking-tight mb-3"
           >
-            Sounds of <span className="bg-gradient-to-r from-white via-cyan to-purple bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(0,240,255,0.4)]">Ronald 3D</span>
+            Sounds of <span className="bg-gradient-to-r from-white via-[#E2E800] to-[#979797] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(226,232,0,0.35)]">Ronald 3D</span>
           </motion.h2>
 
           <motion.p
@@ -78,19 +78,19 @@ export default function SoundsOfMe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-slate-200 text-sm sm:text-base font-normal"
+            className="text-[#D6D6D6] text-sm sm:text-base font-normal"
           >
             Dengarkan trek orisinal, live recording, dan remix eksklusif di berbagai platform musik digital terkemuka.
           </motion.p>
         </div>
 
         {/* Media Channels Quick Access Bar */}
-        <div className="flex items-center justify-center gap-2.5 flex-wrap p-3 rounded-full bg-obsidian-surface/90 border border-white/15 backdrop-blur-xl mb-12 max-w-4xl mx-auto shadow-xl">
+        <div className="flex items-center justify-center gap-2.5 flex-wrap p-3 rounded-full bg-[#1e1e1e]/95 border border-[#444444] backdrop-blur-xl mb-12 max-w-4xl mx-auto shadow-xl">
           <a
             href="https://open.spotify.com/artist/3HkeKnw42As9Ag8BluG93o"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full bg-white/10 hover:bg-[#1db954] hover:text-black text-xs font-bold text-white flex items-center gap-1.5 border border-white/15 transition-all shadow-sm"
+            className="px-4 py-2 rounded-full bg-[#141414] hover:bg-[#1db954] hover:text-black text-xs font-bold text-[#D6D6D6] flex items-center gap-1.5 border border-[#444444] transition-all shadow-sm"
           >
             <Disc className="w-3.5 h-3.5 text-[#1db954] group-hover:text-black" /> Spotify
           </a>
@@ -99,36 +99,36 @@ export default function SoundsOfMe({
             href="https://soundcloud.com/ronald3d"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full bg-white/10 hover:bg-[#ff5500] hover:text-white text-xs font-bold text-white flex items-center gap-1.5 border border-white/15 transition-all shadow-sm"
+            className="px-4 py-2 rounded-full bg-[#141414] hover:bg-[#ff5500] hover:text-white text-xs font-bold text-[#D6D6D6] flex items-center gap-1.5 border border-[#444444] transition-all shadow-sm"
           >
             <Radio className="w-3.5 h-3.5 text-[#ff5500]" /> SoundCloud
           </a>
 
           <a
-            href="https://www.youtube.com/c/Ronald3D"
+            href="https://youtube.com/c/Ronald3D"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full bg-white/10 hover:bg-[#ff0000] hover:text-white text-xs font-bold text-white flex items-center gap-1.5 border border-white/15 transition-all shadow-sm"
+            className="px-4 py-2 rounded-full bg-[#141414] hover:bg-[#ff0000] hover:text-white text-xs font-bold text-[#D6D6D6] flex items-center gap-1.5 border border-[#444444] transition-all shadow-sm"
           >
             <Youtube className="w-3.5 h-3.5 text-[#ff0000]" /> YouTube
           </a>
 
           <a
-            href="https://www.instagram.com/ronald_3d/"
+            href="https://instagram.com/ronald_3d/"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full bg-white/10 hover:bg-[#e1306c] hover:text-white text-xs font-bold text-white flex items-center gap-1.5 border border-white/15 transition-all shadow-sm"
+            className="px-4 py-2 rounded-full bg-[#141414] hover:bg-[#e1306c] hover:text-white text-xs font-bold text-[#D6D6D6] flex items-center gap-1.5 border border-[#444444] transition-all shadow-sm"
           >
             <Sparkles className="w-3.5 h-3.5 text-[#e1306c]" /> Instagram (@ronald_3d)
           </a>
 
           <a
-            href="https://www.tiktok.com/@ronald.3d"
+            href="https://tiktok.com/@ronald.3d"
             target="_blank"
             rel="noopener noreferrer"
-            className="px-4 py-2 rounded-full bg-white/10 hover:bg-cyan hover:text-black text-xs font-bold text-white hover:text-black flex items-center gap-1.5 border border-white/15 transition-all shadow-sm"
+            className="px-4 py-2 rounded-full bg-[#141414] hover:bg-[#E2E800] hover:text-[#141414] text-xs font-bold text-[#D6D6D6] flex items-center gap-1.5 border border-[#444444] transition-all shadow-sm"
           >
-            <Video className="w-3.5 h-3.5 text-cyan" /> TikTok (@ronald.3d)
+            <Video className="w-3.5 h-3.5 text-[#E2E800]" /> TikTok (@ronald.3d)
           </a>
         </div>
 
@@ -136,19 +136,19 @@ export default function SoundsOfMe({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
 
           {/* Main Web Audio Synthesizer Showcase Card (Left) */}
-          <div className="lg:col-span-7 rounded-3xl p-6 sm:p-8 bg-obsidian-surface/90 border border-white/15 shadow-2xl backdrop-blur-2xl flex flex-col justify-between">
+          <div className="lg:col-span-7 rounded-3xl p-6 sm:p-8 bg-[#1e1e1e]/95 border border-[#444444] shadow-2xl backdrop-blur-2xl flex flex-col justify-between">
             <div>
               {/* Header */}
-              <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+              <div className="flex items-center justify-between border-b border-[#444444] pb-4 mb-6">
                 <div>
-                  <span className="font-mono text-xs font-black text-cyan tracking-wider uppercase flex items-center gap-1.5">
-                    <Sparkles className="w-3.5 h-3.5 text-cyan" /> 3D SPATIAL SYNTHESIZER ENGINE
+                  <span className="font-mono text-xs font-black text-[#E2E800] tracking-wider uppercase flex items-center gap-1.5">
+                    <Sparkles className="w-3.5 h-3.5 text-[#E2E800]" /> 3D SPATIAL SYNTHESIZER ENGINE
                   </span>
                   <h3 className="font-display font-extrabold text-xl text-white mt-1">Interactive Sound Lab</h3>
                 </div>
-                <div className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-sm ${isPlaying ? 'bg-cyan text-black' : 'bg-white/10 text-slate-300'
+                <div className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-sm ${isPlaying ? 'bg-[#E2E800] text-[#141414]' : 'bg-[#141414] text-[#979797] border border-[#444444]'
                   }`}>
-                  <span className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-black animate-ping' : 'bg-gray-400'}`} />
+                  <span className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-[#141414] animate-ping' : 'bg-[#979797]'}`} />
                   {isPlaying ? 'AUDIO ACTIVE' : 'PAUSED'}
                 </div>
               </div>
@@ -156,7 +156,7 @@ export default function SoundsOfMe({
               {/* Current Track Showcase */}
               <div className="flex flex-col sm:flex-row items-center gap-6 mb-6">
                 {/* Cover Art with Play Overlay */}
-                <div className="relative w-32 h-32 rounded-2xl overflow-hidden shadow-2xl border border-cyan/40 shrink-0 group">
+                <div className="relative w-32 h-32 rounded-2xl overflow-hidden shadow-2xl border border-[#444444] shrink-0 group">
                   <img
                     src={currentTrack.cover}
                     alt={currentTrack.title}
@@ -164,21 +164,21 @@ export default function SoundsOfMe({
                   />
                   <button
                     onClick={onTogglePlay}
-                    className="absolute inset-0 m-auto w-12 h-12 rounded-full bg-cyan text-black flex items-center justify-center shadow-lg shadow-cyan/50 hover:scale-110 transition-transform"
+                    className="absolute inset-0 m-auto w-12 h-12 rounded-full bg-[#E2E800] text-[#141414] flex items-center justify-center shadow-lg shadow-[#E2E800]/50 hover:scale-110 transition-transform font-black"
                   >
-                    {isPlaying ? <Pause className="w-5 h-5 fill-black" /> : <Play className="w-5 h-5 fill-black ml-0.5" />}
+                    {isPlaying ? <Pause className="w-5 h-5 fill-[#141414]" /> : <Play className="w-5 h-5 fill-[#141414] ml-0.5" />}
                   </button>
                 </div>
 
                 {/* Track Meta Details */}
                 <div className="flex-1 text-center sm:text-left">
-                  <span className="text-xs font-mono font-black text-cyan uppercase tracking-wider block mb-1">
+                  <span className="text-xs font-mono font-black text-[#E2E800] uppercase tracking-wider block mb-1">
                     {currentTrack.genre}
                   </span>
                   <h4 className="font-display font-extrabold text-xl text-white mb-1">
                     {currentTrack.title}
                   </h4>
-                  <p className="text-xs text-slate-300 font-sans font-medium mb-3">
+                  <p className="text-xs text-[#979797] font-sans font-medium mb-3">
                     Produced & Mastered by Ronald 3D
                   </p>
 
@@ -188,7 +188,7 @@ export default function SoundsOfMe({
                       href={currentTrack.spotifyUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-white/10 border border-white/20 text-white hover:bg-cyan hover:text-black hover:border-cyan transition-all flex items-center gap-1.5"
+                      className="px-3.5 py-1.5 rounded-full text-xs font-bold bg-[#141414] border border-[#444444] text-[#D6D6D6] hover:bg-[#E2E800] hover:text-[#141414] hover:border-[#E2E800] transition-all flex items-center gap-1.5"
                     >
                       Stream Track <ExternalLink className="w-3 h-3" />
                     </a>
@@ -204,7 +204,7 @@ export default function SoundsOfMe({
                   const percent = Math.max(0, Math.min(1, clickX / rect.width));
                   onScrub(percent * currentTrack.durationSec);
                 }}
-                className="relative h-14 bg-black/70 rounded-2xl p-2.5 cursor-pointer overflow-hidden border border-white/15 mb-2 flex items-center shadow-inner"
+                className="relative h-14 bg-[#141414] rounded-2xl p-2.5 cursor-pointer overflow-hidden border border-[#444444] mb-2 flex items-center shadow-inner"
               >
                 {/* Animated Wave Bars */}
                 <div className="flex items-center justify-between w-full h-full gap-[3px]">
@@ -217,8 +217,8 @@ export default function SoundsOfMe({
                       <div
                         key={barIdx}
                         className={`flex-1 rounded-full transition-all duration-150 ${isPassed
-                          ? 'bg-cyan shadow-[0_0_8px_rgba(0,240,255,0.9)]'
-                          : 'bg-white/30'
+                          ? 'bg-[#E2E800] shadow-[0_0_8px_rgba(226,232,0,0.9)]'
+                          : 'bg-[#444444]'
                           }`}
                         style={{
                           height: isPlaying ? `${Math.min(100, randomHeight + (Math.sin(barIdx + playProgress) * 20))}%` : `${randomHeight}%`
@@ -230,38 +230,38 @@ export default function SoundsOfMe({
 
                 {/* Progress Overlay */}
                 <div
-                  className="absolute inset-y-0 left-0 bg-cyan/15 pointer-events-none"
+                  className="absolute inset-y-0 left-0 bg-[#E2E800]/15 pointer-events-none"
                   style={{ width: `${currentPercent}%` }}
                 />
               </div>
 
               {/* Time Counter */}
-              <div className="flex items-center justify-between text-xs font-mono font-bold text-slate-300 mb-6">
+              <div className="flex items-center justify-between text-xs font-mono font-bold text-[#979797] mb-6">
                 <span>{formatTime(playProgress)}</span>
-                <span className="text-cyan font-black">{formatTime(currentTrack.durationSec)}</span>
+                <span className="text-[#E2E800] font-black">{formatTime(currentTrack.durationSec)}</span>
               </div>
             </div>
 
             {/* Transport Control Buttons */}
-            <div className="flex items-center justify-between pt-4 border-t border-white/10">
+            <div className="flex items-center justify-between pt-4 border-t border-[#444444]">
               <div className="flex items-center gap-3">
                 <button
                   onClick={onPrevTrack}
-                  className="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-cyan hover:text-black transition-colors"
+                  className="w-10 h-10 rounded-full bg-[#141414] border border-[#444444] text-white flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] hover:border-[#E2E800] transition-colors"
                 >
                   <SkipBack className="w-4 h-4" />
                 </button>
 
                 <button
                   onClick={onTogglePlay}
-                  className="w-12 h-12 rounded-full bg-cyan text-black flex items-center justify-center hover:scale-105 shadow-lg shadow-cyan/40 transition-transform font-bold"
+                  className="w-12 h-12 rounded-full bg-[#E2E800] text-[#141414] flex items-center justify-center hover:scale-105 shadow-lg shadow-[#E2E800]/40 transition-transform font-bold"
                 >
-                  {isPlaying ? <Pause className="w-5 h-5 fill-black" /> : <Play className="w-5 h-5 fill-black ml-0.5" />}
+                  {isPlaying ? <Pause className="w-5 h-5 fill-[#141414]" /> : <Play className="w-5 h-5 fill-[#141414] ml-0.5" />}
                 </button>
 
                 <button
                   onClick={onNextTrack}
-                  className="w-10 h-10 rounded-full bg-white/10 border border-white/20 text-white flex items-center justify-center hover:bg-cyan hover:text-black transition-colors"
+                  className="w-10 h-10 rounded-full bg-[#141414] border border-[#444444] text-white flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] hover:border-[#E2E800] transition-colors"
                 >
                   <SkipForward className="w-4 h-4" />
                 </button>
@@ -274,8 +274,8 @@ export default function SoundsOfMe({
                     key={t.id}
                     onClick={() => onSelectTrack(idx)}
                     className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all ${idx === activeTrackIndex
-                      ? 'bg-cyan text-black font-black shadow-md shadow-cyan/30'
-                      : 'bg-white/10 border border-white/10 text-slate-200 hover:text-white hover:bg-white/20'
+                      ? 'bg-[#E2E800] text-[#141414] font-black shadow-md shadow-[#E2E800]/30'
+                      : 'bg-[#141414] border border-[#444444] text-[#D6D6D6] hover:text-[#FFFFFF] hover:border-[#979797]'
                       }`}
                   >
                     0{idx + 1}
@@ -286,11 +286,11 @@ export default function SoundsOfMe({
           </div>
 
           {/* Live Video Performance Card (Right) */}
-          <div className="lg:col-span-5 rounded-3xl overflow-hidden bg-obsidian-surface/90 border border-white/15 shadow-2xl backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-8">
+          <div className="lg:col-span-5 rounded-3xl overflow-hidden bg-[#1e1e1e]/95 border border-[#444444] shadow-2xl backdrop-blur-2xl flex flex-col justify-between p-6 sm:p-8">
             <div>
               <div className="flex items-center justify-between mb-4">
-                <span className="font-mono text-xs font-black text-cyan uppercase tracking-wider flex items-center gap-1.5">
-                  <Video className="w-3.5 h-3.5 text-cyan" /> FESTIVAL VIDEO CAPTURE
+                <span className="font-mono text-xs font-black text-[#E2E800] uppercase tracking-wider flex items-center gap-1.5">
+                  <Video className="w-3.5 h-3.5 text-[#E2E800]" /> FESTIVAL VIDEO CAPTURE
                 </span>
                 <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono bg-red-500/25 text-red-300 border border-red-500/40 font-black flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-red-400 animate-ping" /> LIVE
@@ -298,7 +298,7 @@ export default function SoundsOfMe({
               </div>
 
               {/* Video Player Box */}
-              <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-white/15 shadow-2xl bg-black mb-4 group cursor-pointer" onClick={toggleVideoPlay}>
+              <div className="relative w-full aspect-video rounded-2xl overflow-hidden border border-[#444444] shadow-2xl bg-black mb-4 group cursor-pointer" onClick={toggleVideoPlay}>
                 <video
                   ref={videoRef}
                   src="/asset/hero.mp4"
@@ -312,8 +312,8 @@ export default function SoundsOfMe({
 
                 {/* Big Center Play Trigger when Paused */}
                 {!isVideoPlaying && (
-                  <div className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-cyan text-black flex items-center justify-center shadow-[0_0_25px_rgba(0,240,255,0.8)] group-hover:scale-110 transition-transform z-10">
-                    <Play className="w-6 h-6 fill-black ml-0.5" />
+                  <div className="absolute inset-0 m-auto w-14 h-14 rounded-full bg-[#E2E800] text-[#141414] flex items-center justify-center shadow-[0_0_25px_rgba(226,232,0,0.8)] group-hover:scale-110 transition-transform z-10 font-bold">
+                    <Play className="w-6 h-6 fill-[#141414] ml-0.5" />
                   </div>
                 )}
 
@@ -321,14 +321,14 @@ export default function SoundsOfMe({
                 <div className="absolute bottom-3 right-3 flex items-center gap-2 z-10" onClick={(e) => e.stopPropagation()}>
                   <button
                     onClick={toggleVideoMute}
-                    className="w-8 h-8 rounded-full bg-black/80 border border-white/25 text-white flex items-center justify-center hover:bg-cyan hover:text-black transition-all"
+                    className="w-8 h-8 rounded-full bg-black/80 border border-[#444444] text-white flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] transition-all"
                   >
                     {isVideoMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
                   </button>
 
                   <button
                     onClick={toggleVideoPlay}
-                    className="w-8 h-8 rounded-full bg-black/80 border border-white/25 text-white flex items-center justify-center hover:bg-cyan hover:text-black transition-all"
+                    className="w-8 h-8 rounded-full bg-black/80 border border-[#444444] text-white flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] transition-all"
                   >
                     {isVideoPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
                   </button>
@@ -338,16 +338,16 @@ export default function SoundsOfMe({
               <h4 className="font-display font-black text-lg text-white mb-1">
                 Neon Horizon World Tour Showcase
               </h4>
-              <p className="text-xs text-slate-200 font-sans leading-relaxed">
+              <p className="text-xs text-[#D6D6D6] font-sans leading-relaxed">
                 Live 3D hologram stage visuals, synchronized laser mapping, dan spatial sub-bass audio system.
               </p>
             </div>
 
-            <div className="pt-4 border-t border-white/10 mt-6 flex items-center justify-between">
-              <span className="text-[11px] font-mono font-bold text-slate-300">4K Ultra HD • 60 FPS Feed</span>
+            <div className="pt-4 border-t border-[#444444] mt-6 flex items-center justify-between">
+              <span className="text-[11px] font-mono font-bold text-[#979797]">4K Ultra HD • 60 FPS Feed</span>
               <a
                 href="#stage-gallery"
-                className="text-xs font-bold text-cyan hover:underline flex items-center gap-1"
+                className="text-xs font-bold text-[#E2E800] hover:underline flex items-center gap-1"
               >
                 View Press Kit Galery &rarr;
               </a>
