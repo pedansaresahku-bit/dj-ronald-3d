@@ -6,7 +6,6 @@ import StageGalleryMirrorHall from './components/StageGalleryMirrorHall';
 import SoundsOfMe from './components/SoundsOfMe';
 import CalendarCMS from './components/CalendarCMS';
 import EPKRider from './components/EPKRider';
-import StickyPlayer from './components/StickyPlayer';
 import LightboxModal from './components/LightboxModal';
 import CMSModal from './components/CMSModal';
 import Toast from './components/Toast';
@@ -426,16 +425,6 @@ export default function App() {
           </p>
         </div>
       </footer>
-
-      {/* Persistent Mini Sticky Audio Player */}
-      <StickyPlayer
-        activeTrackIndex={activeTrackIndex}
-        isPlaying={isPlaying}
-        playProgress={playProgress}
-        onTogglePlay={handleTogglePlay}
-        onPrevTrack={handlePrevTrack}
-        onNextTrack={handleNextTrack}
-      />
 
       {/* Modals & Notifications */}
       <LightboxModal
