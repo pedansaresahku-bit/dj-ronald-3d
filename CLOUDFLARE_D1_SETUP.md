@@ -16,7 +16,7 @@ git commit -m "feat: Ronald 3D Website with Cloudflare D1 CMS & 6-column Calenda
 2. Hubungkan ke remote repository GitHub Anda:
 ```bash
 git branch -M main
-git remote add origin https://github.com/kakodetaid/dj-ronald-3d.git
+git remote add origin https://github.com/pedansaresahku-bit/dj-ronald-3d.git
 git push -u origin main
 ```
 
