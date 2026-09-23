@@ -5,12 +5,9 @@ import {
   X,
   CheckCircle2,
   AlertCircle,
-  MessageCircle,
   Instagram,
   Download,
-  Zap,
-  Sliders,
-  Sparkles
+  Zap
 } from 'lucide-react';
 
 export default function EPKRiderModal({ isOpen, onClose }) {
@@ -31,7 +28,6 @@ export default function EPKRiderModal({ isOpen, onClose }) {
     const content = `=====================================================
 OFFICIAL EPK & TECHNICAL HOSPITALITY RIDER 2026
 DJ RONALD 3D (INDONESIA)
-Management WhatsApp: +62 819-0777-9998
 Instagram: @ronald_3d
 =====================================================
 
@@ -54,7 +50,7 @@ Instagram: @ronald_3d
 
 [ 3. RATE & BOOKING NOTE ]
 - Note: Rate honorarium menyesuaikan dengan skala acara, kapasitas venue, dan lokasi tour.
-- Direct Contact: WhatsApp +62 819-0777-9998 (Dina - Management)
+- Official Booking & Inquiry: Instagram Direct Message @ronald_3d
 
 =====================================================
 © 2026 DJ Ronald 3D Management. All Rights Reserved.
@@ -120,37 +116,6 @@ Instagram: @ronald_3d
 
           {/* Scrollable Content Body */}
           <div className="p-5 sm:p-6 overflow-y-auto space-y-6 text-[#D6D6D6]">
-
-            {/* Official Manager Contact Box */}
-            <div className="p-4 rounded-2xl bg-[#1a1a1a] border border-[#00d26a]/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 shadow-lg shadow-[#00d26a]/5">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-xl bg-[#00d26a]/15 border border-[#00d26a]/40 text-[#00d26a] flex items-center justify-center shrink-0">
-                  <MessageCircle className="w-5 h-5" />
-                </div>
-                <div>
-                  <div className="flex items-center gap-1.5 text-[10px] font-mono font-bold text-[#00d26a] uppercase">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#00d26a] animate-ping" />
-                    <span>OFFICIAL DJ MANAGER CONTACT</span>
-                  </div>
-                  <h3 className="font-display font-black text-sm sm:text-base text-white tracking-wide">
-                    DINA <span className="text-[11px] font-normal text-[#979797]">(MANAGER DJ RONALD 3D)</span>
-                  </h3>
-                  <p className="text-xs font-mono text-[#D6D6D6]">
-                    WhatsApp: <span className="text-white font-bold">+62 819-0777-9998</span>
-                  </p>
-                </div>
-              </div>
-
-              <a
-                href="https://wa.me/6281907779998?text=Halo%20Dina%20(Manager%20DJ%20Ronald%203D),%20saya%20tertarik%20untuk%20inquiry%20jadwal%20dan%20technical%20rider%20event."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto px-4 py-2.5 rounded-full bg-[#00d26a] hover:bg-[#00e875] text-black font-display font-extrabold text-xs uppercase tracking-wider flex items-center justify-center gap-1.5 shadow-md shadow-[#00d26a]/30 transition-all shrink-0 hover:scale-105 active:scale-95"
-              >
-                <MessageCircle className="w-3.5 h-3.5 fill-black" />
-                <span>HUBUNGI VIA WA</span>
-              </a>
-            </div>
 
             {/* 1. HOSPITALITY & TERMS RIDER SECTION */}
             <div>
@@ -233,25 +198,15 @@ Instagram: @ronald_3d
             </span>
 
             {/* Action Buttons */}
-            <div className="flex items-center gap-2 flex-wrap justify-center">
-              <a
-                href="https://wa.me/6281907779998?text=Halo%20Dina%20(Manager%20DJ%20Ronald%203D),%20saya%20ingin%20berkonsultasi%20mengenai%20booking%20showcase."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3.5 py-2 rounded-full bg-[#00d26a] hover:bg-[#00e875] text-black font-display font-black text-xs uppercase flex items-center gap-1.5 shadow-md transition-all hover:scale-105"
-              >
-                <MessageCircle className="w-3.5 h-3.5 fill-black" />
-                <span>WA DINA</span>
-              </a>
-
+            <div className="flex items-center gap-2.5 flex-wrap justify-center">
               <a
                 href="https://instagram.com/ronald_3d/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-3.5 py-2 rounded-full bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#bc1888] text-white font-display font-black text-xs uppercase flex items-center gap-1.5 shadow-md transition-all hover:scale-105"
+                className="px-4 py-2 rounded-full bg-gradient-to-r from-[#f09433] via-[#e6683c] to-[#bc1888] text-white font-display font-black text-xs uppercase flex items-center gap-1.5 shadow-md transition-all hover:scale-105"
               >
                 <Instagram className="w-3.5 h-3.5" />
-                <span>DM IG</span>
+                <span>DM IG (@RONALD_3D)</span>
               </a>
 
               <button
