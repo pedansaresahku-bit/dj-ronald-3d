@@ -50,7 +50,7 @@ export default function SoundsOfMe({
   return (
     <section id="sounds-of-me" className="py-24 relative z-10">
       <div className="w-[92%] max-w-[1560px] mx-auto">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <motion.div
@@ -134,7 +134,7 @@ export default function SoundsOfMe({
 
         {/* Dual Column Layout: Synthesizer Player + Live Video Experience */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          
+
           {/* Main Web Audio Synthesizer Showcase Card (Left) */}
           <div className="lg:col-span-7 rounded-3xl p-6 sm:p-8 bg-obsidian-surface/90 border border-white/15 shadow-2xl backdrop-blur-2xl flex flex-col justify-between">
             <div>
@@ -146,9 +146,8 @@ export default function SoundsOfMe({
                   </span>
                   <h3 className="font-display font-extrabold text-xl text-white mt-1">Interactive Sound Lab</h3>
                 </div>
-                <div className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-sm ${
-                  isPlaying ? 'bg-cyan text-black' : 'bg-white/10 text-slate-300'
-                }`}>
+                <div className={`px-3 py-1 rounded-full text-[11px] font-mono font-bold flex items-center gap-1.5 shadow-sm ${isPlaying ? 'bg-cyan text-black' : 'bg-white/10 text-slate-300'
+                  }`}>
                   <span className={`w-2 h-2 rounded-full ${isPlaying ? 'bg-black animate-ping' : 'bg-gray-400'}`} />
                   {isPlaying ? 'AUDIO ACTIVE' : 'PAUSED'}
                 </div>
@@ -198,7 +197,7 @@ export default function SoundsOfMe({
               </div>
 
               {/* Interactive Audio Waveform Scrubber */}
-              <div 
+              <div
                 onClick={(e) => {
                   const rect = e.currentTarget.getBoundingClientRect();
                   const clickX = e.clientX - rect.left;
@@ -217,11 +216,10 @@ export default function SoundsOfMe({
                     return (
                       <div
                         key={barIdx}
-                        className={`flex-1 rounded-full transition-all duration-150 ${
-                          isPassed
-                            ? 'bg-cyan shadow-[0_0_8px_rgba(0,240,255,0.9)]'
-                            : 'bg-white/30'
-                        }`}
+                        className={`flex-1 rounded-full transition-all duration-150 ${isPassed
+                          ? 'bg-cyan shadow-[0_0_8px_rgba(0,240,255,0.9)]'
+                          : 'bg-white/30'
+                          }`}
                         style={{
                           height: isPlaying ? `${Math.min(100, randomHeight + (Math.sin(barIdx + playProgress) * 20))}%` : `${randomHeight}%`
                         }}
@@ -275,11 +273,10 @@ export default function SoundsOfMe({
                   <button
                     key={t.id}
                     onClick={() => onSelectTrack(idx)}
-                    className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all ${
-                      idx === activeTrackIndex
-                        ? 'bg-cyan text-black font-black shadow-md shadow-cyan/30'
-                        : 'bg-white/10 border border-white/10 text-slate-200 hover:text-white hover:bg-white/20'
-                    }`}
+                    className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all ${idx === activeTrackIndex
+                      ? 'bg-cyan text-black font-black shadow-md shadow-cyan/30'
+                      : 'bg-white/10 border border-white/10 text-slate-200 hover:text-white hover:bg-white/20'
+                      }`}
                   >
                     0{idx + 1}
                   </button>

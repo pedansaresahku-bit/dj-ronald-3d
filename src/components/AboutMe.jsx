@@ -6,7 +6,7 @@ export default function AboutMe() {
   return (
     <section id="about-me" className="py-24 relative z-10">
       <div className="w-[92%] max-w-[1560px] mx-auto">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <motion.div
@@ -42,7 +42,7 @@ export default function AboutMe() {
 
         {/* Bento Grid Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          
+
           {/* Visual Showcase Card (Left Column) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}

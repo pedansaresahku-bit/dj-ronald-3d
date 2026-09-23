@@ -229,11 +229,11 @@ export default function App() {
 
   const stopSynth = () => {
     if (osc1Ref.current) {
-      try { osc1Ref.current.stop(); osc1Ref.current.disconnect(); } catch (e) {}
+      try { osc1Ref.current.stop(); osc1Ref.current.disconnect(); } catch (e) { }
       osc1Ref.current = null;
     }
     if (osc2Ref.current) {
-      try { osc2Ref.current.stop(); osc2Ref.current.disconnect(); } catch (e) {}
+      try { osc2Ref.current.stop(); osc2Ref.current.disconnect(); } catch (e) { }
       osc2Ref.current = null;
     }
     if (kickTimerRef.current) {

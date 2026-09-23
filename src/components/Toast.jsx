@@ -13,16 +13,16 @@ export default function Toast({ toasts, onDismiss }) {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, x: 50, scale: 0.9 }}
             transition={{ duration: 0.25 }}
-            className="pointer-events-auto flex items-center justify-between gap-3 p-3.5 rounded-xl bg-obsidian-surface/95 border border-cyan/30 text-white shadow-2xl backdrop-blur-xl"
+            className="pointer-events-auto flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-white/95 border border-[#5289AD]/40 text-[#243C4C] shadow-xl backdrop-blur-xl"
           >
-            <div className="flex items-center gap-2.5 text-xs font-medium">
-              <Sparkles className="w-4 h-4 text-cyan shrink-0 animate-pulse" />
+            <div className="flex items-center gap-2.5 text-xs font-bold font-sans">
+              <Sparkles className="w-4 h-4 text-[#5289AD] shrink-0 animate-pulse" />
               <span>{toast.message}</span>
             </div>
             {onDismiss && (
               <button
                 onClick={() => onDismiss(toast.id)}
-                className="text-gray-400 hover:text-white p-1 rounded-md transition-colors"
+                className="text-[#698696] hover:text-[#243C4C] p-1 rounded-md transition-colors"
               >
                 <X className="w-3.5 h-3.5" />
               </button>

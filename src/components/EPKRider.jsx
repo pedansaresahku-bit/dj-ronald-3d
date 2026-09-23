@@ -29,7 +29,7 @@ export default function EPKRider({ onBookingSubmit }) {
   return (
     <section id="epk-rider" className="py-24 relative z-10">
       <div className="w-[92%] max-w-[1560px] mx-auto">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <motion.div
@@ -65,7 +65,7 @@ export default function EPKRider({ onBookingSubmit }) {
 
         {/* Dual Column Layout: EPK Downloads & Tech Specs + Promoter Booking Form */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-          
+
           {/* Press Kit & Audio Specs (Left) */}
           <div className="lg:col-span-6 rounded-3xl p-6 sm:p-8 bg-obsidian-surface/90 border border-white/15 shadow-2xl backdrop-blur-2xl flex flex-col justify-between">
             <div>

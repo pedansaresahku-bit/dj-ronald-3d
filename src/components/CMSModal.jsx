@@ -1,25 +1,25 @@
 import React, { useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Lock, 
-  X, 
-  LogOut, 
-  Plus, 
-  Edit3, 
-  Trash2, 
-  Sparkles, 
-  Upload, 
+import {
+  Lock,
+  X,
+  LogOut,
+  Plus,
+  Edit3,
+  Trash2,
+  Sparkles,
+  Upload,
   AlertCircle,
   RotateCcw
 } from 'lucide-react';
 
-export default function CMSModal({ 
-  isOpen, 
-  onClose, 
-  events = [], 
-  onSaveEvent, 
-  onDeleteEvent, 
-  onResetDefaults, 
+export default function CMSModal({
+  isOpen,
+  onClose,
+  events = [],
+  onSaveEvent,
+  onDeleteEvent,
+  onResetDefaults,
   isD1Connected,
   inquiries = []
 }) {
@@ -190,7 +190,7 @@ export default function CMSModal({
   return (
     <AnimatePresence>
       <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
-        
+
         {/* Dark Dimmed Backdrop */}
         <div
           onClick={onClose}
@@ -209,7 +209,7 @@ export default function CMSModal({
           {/* SLIDE 1: MANAGEMENT ACCESS ONLY */}
           {!isAuthenticated ? (
             <div className="p-6 sm:p-10 flex flex-col justify-between min-h-[480px]">
-              
+
               {/* Header Top Bar */}
               <div className="flex items-center justify-between border-b border-white/10 pb-4">
                 <div className="flex items-center gap-3">
@@ -236,7 +236,7 @@ export default function CMSModal({
 
               {/* Center Lock Screen Content */}
               <div className="flex flex-col items-center text-center my-auto py-6">
-                
+
                 {/* Glowing Center Lock Icon */}
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-b from-[#0a1824] to-[#0c0e18] border-2 border-cyan shadow-[0_0_25px_rgba(0,240,255,0.35)] flex items-center justify-center mb-5">
                   <Lock className="w-6 h-6 text-cyan" />
@@ -292,7 +292,7 @@ export default function CMSModal({
           ) : (
             /* SLIDE 2 & SLIDE 3: AUTHENTICATED MANAGEMENT DASHBOARD */
             <div className="p-5 sm:p-6 flex flex-col h-full overflow-hidden">
-              
+
               {/* Header Top Bar */}
               <div className="flex items-center justify-between border-b border-white/10 pb-3 mb-4 shrink-0">
                 <div className="flex items-center gap-3">
@@ -335,11 +335,10 @@ export default function CMSModal({
                       setActiveTab('calendar');
                       setCurrentView('list');
                     }}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold tracking-wide transition-all uppercase ${
-                      activeTab === 'calendar'
-                        ? 'bg-cyan text-black shadow-md shadow-cyan/25'
-                        : 'bg-white/10 text-slate-300 hover:text-white hover:bg-white/15 border border-white/10'
-                    }`}
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold tracking-wide transition-all uppercase ${activeTab === 'calendar'
+                      ? 'bg-cyan text-black shadow-md shadow-cyan/25'
+                      : 'bg-white/10 text-slate-300 hover:text-white hover:bg-white/15 border border-white/10'
+                      }`}
                   >
                     Club & Gig Calendar ({events.length})
                   </button>
@@ -349,11 +348,10 @@ export default function CMSModal({
                       setActiveTab('inquiries');
                       setCurrentView('list');
                     }}
-                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold tracking-wide transition-all uppercase ${
-                      activeTab === 'inquiries'
-                        ? 'bg-cyan text-black shadow-md shadow-cyan/25'
-                        : 'bg-white/10 text-slate-300 hover:text-white hover:bg-white/15 border border-white/10'
-                    }`}
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold tracking-wide transition-all uppercase ${activeTab === 'inquiries'
+                      ? 'bg-cyan text-black shadow-md shadow-cyan/25'
+                      : 'bg-white/10 text-slate-300 hover:text-white hover:bg-white/15 border border-white/10'
+                      }`}
                   >
                     Promoter Inquiries ({inquiries.length})
                   </button>
@@ -484,7 +482,7 @@ export default function CMSModal({
               {/* SLIDE 3: ADD / EDIT EVENT FORM */}
               {currentView === 'form' && (
                 <form onSubmit={handleFormSubmit} className="flex-1 overflow-y-auto pr-1 flex flex-col gap-3.5">
-                  
+
                   {/* Form Section Header */}
                   <div className="flex items-center justify-between pb-2 border-b border-white/10">
                     <div className="flex items-center gap-2">

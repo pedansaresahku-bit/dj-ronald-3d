@@ -30,12 +30,12 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
 
   return (
     <section id="stage-gallery" className="py-20 relative z-10 overflow-hidden bg-obsidian">
-      
+
       {/* Subtle Ambient Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[380px] h-[120px] bg-cyan/10 rounded-full blur-3xl pointer-events-none z-0" />
 
       <div className="w-[92%] max-w-[1560px] mx-auto relative z-10">
-        
+
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-cyan/10 border border-cyan/30 text-cyan text-xs font-mono font-semibold uppercase mb-3">
@@ -65,8 +65,8 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
 
         {/* 3D Perspective Carousel Viewport */}
         <div className="relative w-full py-2 md:py-6 flex flex-col items-center justify-center select-none">
-          
-          <div 
+
+          <div
             className="relative w-full h-[440px] sm:h-[500px] md:h-[560px] flex items-center justify-center"
             style={{ perspective: '1400px', transformStyle: 'preserve-3d' }}
           >
@@ -102,11 +102,10 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
                       setTimerKey(prev => prev + 1);
                     }
                   }}
-                  className={`absolute top-0 bottom-0 my-auto w-[270px] sm:w-[350px] md:w-[420px] h-[360px] sm:h-[440px] md:h-[490px] rounded-2xl overflow-hidden cursor-pointer group transition-all duration-500 ease-out gpu-accel ${
-                    isCurrent
-                      ? 'border-2 border-cyan shadow-[0_0_30px_rgba(0,240,255,0.3)] ring-2 ring-cyan/20'
-                      : 'border border-white/10 hover:border-white/30 brightness-75 hover:brightness-100'
-                  }`}
+                  className={`absolute top-0 bottom-0 my-auto w-[270px] sm:w-[350px] md:w-[420px] h-[360px] sm:h-[440px] md:h-[490px] rounded-2xl overflow-hidden cursor-pointer group transition-all duration-500 ease-out gpu-accel ${isCurrent
+                    ? 'border-2 border-cyan shadow-[0_0_30px_rgba(0,240,255,0.3)] ring-2 ring-cyan/20'
+                    : 'border border-white/10 hover:border-white/30 brightness-75 hover:brightness-100'
+                    }`}
                   style={{
                     transform: `translateX(${translateX}px) translateZ(${translateZ}px) rotateY(${rotateY}deg) scale(${scale})`,
                     opacity: opacity,
@@ -145,7 +144,7 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
 
           {/* Navigation & Progress Controls */}
           <div className="w-full max-w-xl mx-auto mt-6 flex flex-col items-center gap-4 px-4">
-            
+
             {/* Arrow Navigation & Dots */}
             <div className="flex items-center justify-center gap-4 sm:gap-6">
               <button
@@ -165,11 +164,10 @@ export default function StageGalleryMirrorHall({ onOpenLightbox, onViewAllGaller
                       setActiveIndex(dotIdx);
                       setTimerKey(prev => prev + 1);
                     }}
-                    className={`h-2 rounded-full transition-all duration-300 ${
-                      dotIdx === activeIndex
-                        ? 'w-6 bg-cyan shadow-[0_0_8px_rgba(0,240,255,0.8)]'
-                        : 'w-2 bg-white/20 hover:bg-white/40'
-                    }`}
+                    className={`h-2 rounded-full transition-all duration-300 ${dotIdx === activeIndex
+                      ? 'w-6 bg-cyan shadow-[0_0_8px_rgba(0,240,255,0.8)]'
+                      : 'w-2 bg-white/20 hover:bg-white/40'
+                      }`}
                     aria-label={`Go to slide ${dotIdx + 1}`}
                   />
                 ))}

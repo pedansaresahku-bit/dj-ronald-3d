@@ -1,14 +1,14 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { 
-  Calendar as CalendarIcon, 
-  ChevronLeft, 
-  ChevronRight, 
-  MapPin, 
-  Sparkles, 
-  Zap, 
-  ExternalLink, 
-  X, 
+import {
+  Calendar as CalendarIcon,
+  ChevronLeft,
+  ChevronRight,
+  MapPin,
+  Sparkles,
+  Zap,
+  ExternalLink,
+  X,
   Ticket,
   Sliders
 } from 'lucide-react';
@@ -30,7 +30,7 @@ export default function CalendarCMS({
     "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
     "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
   ];
-  
+
   const shortMonths = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEPT", "OCT", "NOV", "DEC"];
   const dayNames = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
 
@@ -75,7 +75,7 @@ export default function CalendarCMS({
       const dayOfWeekIdx = dateObj.getDay();
       const dayOfWeekStr = dayNames[dayOfWeekIdx];
       const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-      
+
       const isToday = isThisCurrentRealMonth && day === 23; // 23 Sept 2026
 
       days.push({
@@ -109,10 +109,10 @@ export default function CalendarCMS({
   return (
     <section id="kalender" className="py-20 relative z-10 bg-obsidian">
       <div className="w-[94%] max-w-[1600px] mx-auto">
-        
+
         {/* Top Header & Month Switcher Bar */}
         <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 border-b border-white/10 pb-6">
-          
+
           {/* Subtitle / Realtime Clock Description */}
           <div className="max-w-2xl">
             <p className="text-slate-200 text-xs sm:text-sm font-normal leading-relaxed">
@@ -122,7 +122,7 @@ export default function CalendarCMS({
 
           {/* Month Switcher Controls */}
           <div className="flex items-center gap-3 self-start lg:self-auto">
-            
+
             {/* Prev Month Button */}
             <button
               onClick={handlePrevMonth}
@@ -137,7 +137,7 @@ export default function CalendarCMS({
               <span className="font-display font-black text-xs sm:text-sm tracking-wider text-white">
                 {monthNames[currentMonth]} {currentYear}
               </span>
-              
+
               {/* NOW Badge if viewing September 2026 */}
               {currentYear === 2026 && currentMonth === 8 && (
                 <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-cyan text-black tracking-wider uppercase">
@@ -184,11 +184,10 @@ export default function CalendarCMS({
                   whileHover={{ y: -3 }}
                   transition={{ duration: 0.2 }}
                   onClick={() => handleCardClick(dayItem)}
-                  className={`relative p-3.5 sm:p-4 rounded-2xl flex flex-col justify-between h-[165px] sm:h-[175px] cursor-pointer transition-all duration-300 select-none group ${
-                    dayItem.isToday
-                      ? 'bg-gradient-to-b from-[#0e2136] to-[#0c1424] border-2 border-cyan shadow-[0_0_25px_rgba(0,240,255,0.4)]'
-                      : 'bg-obsidian-surface border-2 border-cyan/40 hover:border-cyan hover:shadow-[0_0_20px_rgba(0,240,255,0.3)]'
-                  }`}
+                  className={`relative p-3.5 sm:p-4 rounded-2xl flex flex-col justify-between h-[165px] sm:h-[175px] cursor-pointer transition-all duration-300 select-none group ${dayItem.isToday
+                    ? 'bg-gradient-to-b from-[#0e2136] to-[#0c1424] border-2 border-cyan shadow-[0_0_25px_rgba(0,240,255,0.4)]'
+                    : 'bg-obsidian-surface border-2 border-cyan/40 hover:border-cyan hover:shadow-[0_0_20px_rgba(0,240,255,0.3)]'
+                    }`}
                 >
                   {/* Card Header */}
                   <div className="flex items-center justify-between">
@@ -297,7 +296,7 @@ export default function CalendarCMS({
 
         {/* Section Bottom Info & Request Event Date CTA Button */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-5 mt-10 pt-6 border-t border-white/10">
-          
+
           {/* Synchronized WIB Note */}
           <div className="flex items-center gap-2.5 text-xs sm:text-sm font-normal text-slate-200">
             <span className="w-3 h-3 rounded-full bg-cyan shadow-[0_0_12px_rgba(0,240,255,0.9)] shrink-0 animate-pulse" />
@@ -339,7 +338,7 @@ export default function CalendarCMS({
 
               {/* Modal Content */}
               <div className="p-6 sm:p-8">
-                
+
                 {/* Header Tag */}
                 <div className="flex items-center gap-2 mb-3">
                   <span className="px-3 py-1 rounded-full text-[11px] font-mono font-black bg-cyan/20 text-cyan border border-cyan/40 uppercase flex items-center gap-1 shadow-sm">

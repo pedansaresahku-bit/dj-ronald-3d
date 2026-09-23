@@ -30,10 +30,10 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
   return (
     <header className="fixed top-0 left-0 right-0 z-40 px-4 sm:px-8 py-3.5 flex justify-center pointer-events-none">
       <div className="w-[92%] max-w-[1560px] mx-auto flex items-center justify-between p-2 sm:px-5 sm:py-2.5 rounded-full bg-obsidian-surface/90 backdrop-blur-2xl border border-white/20 shadow-2xl pointer-events-auto transition-all">
-        
+
         {/* Brand Logo */}
-        <a 
-          href="#home" 
+        <a
+          href="#home"
           onClick={(e) => {
             if (currentRoute === '/galery' && onNavigate) {
               onNavigate('/');
@@ -60,13 +60,12 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
               key={link.name}
               href={currentRoute === '/galery' ? `/${link.href}` : link.href}
               onClick={(e) => handleLinkClick(e, link)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all ${
-                link.highlight
-                  ? 'bg-cyan text-black font-extrabold shadow-lg shadow-cyan/30 hover:bg-cyan/90 hover:scale-105'
-                  : currentRoute === '/galery' && link.name === 'Press Kit Galery'
+              className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all ${link.highlight
+                ? 'bg-cyan text-black font-extrabold shadow-lg shadow-cyan/30 hover:bg-cyan/90 hover:scale-105'
+                : currentRoute === '/galery' && link.name === 'Press Kit Galery'
                   ? 'bg-cyan text-black font-extrabold shadow-md'
                   : 'text-slate-100 hover:text-cyan hover:bg-white/10'
-              }`}
+                }`}
             >
               {link.name}
             </a>
@@ -78,11 +77,10 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
           {/* Audio Synthesizer Master Toggle */}
           <button
             onClick={onToggleAudio}
-            className={`relative w-9 h-9 rounded-full flex items-center justify-center border transition-all ${
-              isAudioActive
-                ? 'bg-cyan/25 border-cyan text-cyan shadow-[0_0_15px_rgba(0,240,255,0.6)]'
-                : 'bg-white/10 border-white/20 text-slate-200 hover:text-white hover:bg-white/20'
-            }`}
+            className={`relative w-9 h-9 rounded-full flex items-center justify-center border transition-all ${isAudioActive
+              ? 'bg-cyan/25 border-cyan text-cyan shadow-[0_0_15px_rgba(0,240,255,0.6)]'
+              : 'bg-white/10 border-white/20 text-slate-200 hover:text-white hover:bg-white/20'
+              }`}
             title={isAudioActive ? 'Mute 3D Audio Experience' : 'Activate 3D Audio Experience'}
           >
             {isAudioActive ? (
@@ -127,11 +125,10 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
                       setIsMobileMenuOpen(false);
                       handleLinkClick(e, link);
                     }}
-                    className={`flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all ${
-                      link.highlight
-                        ? 'bg-gradient-to-r from-cyan to-blue-500 text-black shadow-lg shadow-cyan/20'
-                        : 'text-slate-100 hover:text-white hover:bg-white/10'
-                    }`}
+                    className={`flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all ${link.highlight
+                      ? 'bg-gradient-to-r from-cyan to-blue-500 text-black shadow-lg shadow-cyan/20'
+                      : 'text-slate-100 hover:text-white hover:bg-white/10'
+                      }`}
                   >
                     <Icon className="w-4 h-4 text-cyan" />
                     <span>{link.name}</span>
