@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -17,7 +17,7 @@
     scroll-behavior: smooth;
     background-color: #070a14;
     color: #f8fafc;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Plus Jakarta Sans', sans-serif;
   }
 
   body {
@@ -75,7 +75,7 @@
   will-change: transform, opacity;
 }
 
-/* 10-Second Pure CSS Progress Animation (Zero CPU/React Re-renders) */
+/* 10-Second Pure CSS Progress Animation */
 @keyframes slideProgress10s {
   from {
     width: 0%;

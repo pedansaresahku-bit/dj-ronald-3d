@@ -29,14 +29,13 @@ export default {
         }
       },
       fontFamily: {
-        display: ['Syne', 'sans-serif'],
-        sans: ['Space Grotesk', 'sans-serif'],
+        display: ['Outfit', 'Plus Jakarta Sans', 'sans-serif'],
+        sans: ['Plus Jakarta Sans', 'Space Grotesk', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace']
       },
       animation: {
         'pulse-glow': 'pulseGlow 2.5s infinite ease-in-out',
         'float': 'floatAnim 6s ease-in-out infinite',
-        'aurora': 'aurora 15s ease infinite alternate',
       },
       keyframes: {
         pulseGlow: {
@@ -46,10 +45,6 @@ export default {
         floatAnim: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-8px)' },
-        },
-        aurora: {
-          '0%': { backgroundPosition: '0% 50%' },
-          '100%': { backgroundPosition: '100% 50%' }
         }
       }
     },
