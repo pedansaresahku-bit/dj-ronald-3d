@@ -1,0 +1,13 @@
+# ========================================================================
+# Cloudflare Pages / Workers Configuration for Ronald 3D
+# ========================================================================
+
+name = "ronald-3d"
+compatibility_date = "2024-01-01"
+pages_build_output_dir = "dist"
+
+# Cloudflare D1 Database Binding
+[[d1_databases]]
+binding = "DB"
+database_name = "ronald3d-db"
+database_id = "your-d1-database-id-here" # Replace with your actual D1 ID after running wrangler d1 create
