@@ -8,24 +8,45 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian: '#070a14',
-        'obsidian-surface': '#0e162b',
-        'obsidian-card': 'rgba(14, 22, 43, 0.88)',
+        // Urban Nocturne Palette
+        nocturne: {
+          DEFAULT: '#141414',
+          bg: '#141414',
+          dark: '#0e0e0e',
+          card: '#1c1c1c',
+          surface: '#242424',
+          charcoal: '#444444',
+          gray: '#979797',
+          silver: '#D6D6D6',
+          lime: '#E2E800',
+        },
+        obsidian: {
+          DEFAULT: '#141414',
+          surface: '#1c1c1c',
+          card: 'rgba(28, 28, 28, 0.92)',
+        },
         cyan: {
-          DEFAULT: '#00f0ff',
-          glow: 'rgba(0, 240, 255, 0.55)',
-          muted: 'rgba(0, 240, 255, 0.15)',
-          light: '#e0fcff'
+          DEFAULT: '#E2E800', // Electric Cyber Lime as the primary high-impact accent
+          glow: 'rgba(226, 232, 0, 0.55)',
+          muted: 'rgba(226, 232, 0, 0.15)',
+          light: '#f7fab3'
+        },
+        lime: {
+          DEFAULT: '#E2E800',
+          glow: 'rgba(226, 232, 0, 0.55)',
+          muted: 'rgba(226, 232, 0, 0.15)',
+          light: '#f7fab3'
         },
         purple: {
-          DEFAULT: '#a855f7',
-          glow: 'rgba(168, 85, 247, 0.45)',
-          light: '#f3e8ff'
+          DEFAULT: '#D6D6D6',
+          glow: 'rgba(214, 214, 214, 0.45)',
+          light: '#ffffff'
         },
         silver: {
-          DEFAULT: '#f8fafc',
-          chrome: '#e2e8f0',
-          dark: '#94a3b8'
+          DEFAULT: '#D6D6D6',
+          chrome: '#D6D6D6',
+          dark: '#979797',
+          charcoal: '#444444'
         }
       },
       fontFamily: {
