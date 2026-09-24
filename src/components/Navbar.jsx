@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Volume2, VolumeX, Menu, X, Calendar, Music, Camera, User, FileText, Sparkles } from 'lucide-react';
+import { Menu, X, Calendar, Music, Camera, User, FileText, Sparkles } from 'lucide-react';
 
 export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/', onNavigate, onOpenEPKModal }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -65,18 +65,13 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }
           }}
-          className="flex items-center gap-2.5 group cursor-pointer"
+          className="flex items-center group cursor-pointer py-0.5"
         >
-          <div className="relative w-8 h-8 flex items-center justify-center">
-            <img
-              src="/asset/3d-logo.png"
-              alt="Ronald 3D Logo"
-              className="w-full h-full object-contain drop-shadow-[0_0_12px_rgba(226,232,0,0.8)] group-hover:scale-105 transition-transform"
-            />
-          </div>
-          <span className="font-display font-black text-base sm:text-lg tracking-wider text-[#FFFFFF]">
-            RONALD <span className="text-[#E2E800] drop-shadow-[0_0_14px_rgba(226,232,0,0.9)]">3D</span>
-          </span>
+          <img
+            src="/asset/icon.png"
+            alt="Ronald 3D"
+            className="h-8 sm:h-9 w-auto max-w-[150px] object-contain drop-shadow-[0_0_12px_rgba(226,232,0,0.8)] group-hover:scale-105 transition-transform"
+          />
         </a>
 
         {/* Desktop Nav Items */}
@@ -101,27 +96,8 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
           })}
         </nav>
 
-        {/* Actions (Sound Toggle & Mobile Menu) */}
+        {/* Actions (Mobile Menu) */}
         <div className="flex items-center gap-2">
-          {/* Audio Synthesizer Master Toggle */}
-          <button
-            onClick={onToggleAudio}
-            className={`relative w-9 h-9 rounded-full flex items-center justify-center border transition-all ${isAudioActive
-              ? 'bg-[#E2E800]/25 border-[#E2E800] text-[#E2E800] shadow-[0_0_15px_rgba(226,232,0,0.6)]'
-              : 'bg-[#1e1e1e] border-[#444444] text-[#D6D6D6] hover:text-[#FFFFFF] hover:border-[#979797]'
-              }`}
-            title={isAudioActive ? 'Mute 3D Audio Experience' : 'Activate 3D Audio Experience'}
-          >
-            {isAudioActive ? (
-              <>
-                <Volume2 className="w-4 h-4 text-[#E2E800]" />
-                <span className="absolute -inset-1 rounded-full border border-[#E2E800]/50 animate-ping opacity-75" />
-              </>
-            ) : (
-              <VolumeX className="w-4 h-4" />
-            )}
-          </button>
-
           {/* Mobile Hamburger Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
