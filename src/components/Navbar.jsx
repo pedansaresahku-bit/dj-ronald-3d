@@ -65,13 +65,16 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
               window.scrollTo({ top: 0, behavior: 'smooth' });
             }
           }}
-          className="flex items-center group cursor-pointer py-0.5"
+          className="flex items-center gap-2.5 group cursor-pointer py-0.5"
         >
           <img
             src="/asset/icon.png"
-            alt="Ronald 3D"
-            className="h-8 sm:h-9 w-auto max-w-[150px] object-contain drop-shadow-[0_0_12px_rgba(226,232,0,0.8)] group-hover:scale-105 transition-transform"
+            alt="Ronald 3D Logo"
+            className="h-8 sm:h-9 w-auto max-w-[40px] object-contain drop-shadow-[0_0_12px_rgba(226,232,0,0.8)] group-hover:scale-105 transition-transform"
           />
+          <span className="font-display font-black text-base sm:text-lg tracking-wider text-[#FFFFFF]">
+            RONALD <span className="text-[#E2E800] drop-shadow-[0_0_14px_rgba(226,232,0,0.9)]">3D</span>
+          </span>
         </a>
 
         {/* Desktop Nav Items */}
