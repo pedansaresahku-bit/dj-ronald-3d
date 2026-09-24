@@ -49,32 +49,29 @@ export default function Hero({ onExploreSounds, onExploreGallery, onBookTour }) 
           transition={{ duration: 0.7, delay: 0.2 }}
           className="flex flex-wrap items-center justify-center gap-3.5"
         >
-          <a
-            href="#sounds-of-me"
+          <button
             onClick={onExploreSounds}
             className="px-6 py-3.5 rounded-full bg-[#E2E800] hover:bg-[#f2f716] text-[#141414] font-display font-black text-xs sm:text-sm tracking-wide shadow-xl shadow-[#E2E800]/30 hover:shadow-[#E2E800]/60 hover:scale-105 transition-all flex items-center gap-2 group cursor-pointer"
           >
             <Play className="w-4 h-4 fill-[#141414] group-hover:scale-110 transition-transform" />
             <span>Listen Sounds of Me</span>
-          </a>
+          </button>
 
-          <a
-            href="#stage-gallery"
+          <button
             onClick={onExploreGallery}
             className="px-6 py-3.5 rounded-full bg-[#1e1e1e] border border-[#444444] text-[#D6D6D6] font-display font-bold text-xs sm:text-sm tracking-wide hover:bg-[#242424] hover:border-[#E2E800] hover:text-[#E2E800] transition-all flex items-center gap-2 backdrop-blur-md shadow-lg hover:scale-105 cursor-pointer"
           >
             <Sparkles className="w-4 h-4 text-[#E2E800]" />
             <span>Explore Press Kit Galery</span>
-          </a>
+          </button>
 
-          <a
-            href="#kalender"
+          <button
             onClick={onBookTour}
             className="px-6 py-3.5 rounded-full bg-[#242424] border border-[#444444] text-[#FFFFFF] font-display font-bold text-xs sm:text-sm tracking-wide hover:bg-[#E2E800] hover:text-[#141414] hover:border-[#E2E800] transition-all flex items-center gap-2 shadow-lg hover:scale-105 cursor-pointer"
           >
             <Calendar className="w-4 h-4" />
             <span>Tour Schedule & RSVP</span>
-          </a>
+          </button>
         </motion.div>
 
       </div>

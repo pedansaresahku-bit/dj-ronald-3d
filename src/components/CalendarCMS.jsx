@@ -18,9 +18,11 @@ export default function CalendarCMS({
   onOpenCMS,
   onRSVP
 }) {
-  // Calendar state initialized to September 2026 (or dynamic)
-  const [currentYear, setCurrentYear] = useState(2026);
-  const [currentMonth, setCurrentMonth] = useState(8); // 8 = September (0-indexed)
+  const today = useMemo(() => new Date(), []);
+  
+  // Calendar state dynamically initialized to Today's Year & Month
+  const [currentYear, setCurrentYear] = useState(() => today.getFullYear());
+  const [currentMonth, setCurrentMonth] = useState(() => today.getMonth()); // 0-indexed
 
   // Selected event or date for detail flyer inspector modal
   const [selectedEvent, setSelectedEvent] = useState(null);
@@ -55,11 +57,13 @@ export default function CalendarCMS({
   // Map events by dateKey: "YYYY-MM-DD"
   const eventMap = useMemo(() => {
     const map = {};
-    events.forEach(ev => {
-      if (ev && ev.date) {
-        map[ev.date] = ev;
-      }
-    });
+    if (Array.isArray(events)) {
+      events.forEach(ev => {
+        if (ev && ev.date) {
+          map[ev.date] = ev;
+        }
+      });
+    }
     return map;
   }, [events]);
 
@@ -68,7 +72,10 @@ export default function CalendarCMS({
 
   const monthDays = useMemo(() => {
     const days = [];
-    const isThisCurrentRealMonth = (currentYear === 2026 && currentMonth === 8); // Sept 2026
+    const isThisCurrentRealMonth = (
+      currentYear === today.getFullYear() && 
+      currentMonth === today.getMonth()
+    );
 
     for (let day = 1; day <= daysInMonth; day++) {
       const dateObj = new Date(currentYear, currentMonth, day);
@@ -76,7 +83,7 @@ export default function CalendarCMS({
       const dayOfWeekStr = dayNames[dayOfWeekIdx];
       const dateKey = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
 
-      const isToday = isThisCurrentRealMonth && day === 23; // 23 Sept 2026
+      const isToday = isThisCurrentRealMonth && (day === today.getDate());
 
       days.push({
         dayNumber: day,
@@ -89,7 +96,7 @@ export default function CalendarCMS({
       });
     }
     return days;
-  }, [currentYear, currentMonth, daysInMonth, eventMap]);
+  }, [currentYear, currentMonth, daysInMonth, eventMap, today]);
 
   const handleCardClick = (dayItem) => {
     if (dayItem.event) {

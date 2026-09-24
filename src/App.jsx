@@ -12,16 +12,23 @@ import CMSModal from './components/CMSModal';
 import Toast from './components/Toast';
 
 import PressKitGalleryPage from './components/PressKitGalleryPage';
+import SoundsOfMePage from './components/SoundsOfMePage';
+import Footer from './components/Footer';
 
 import { TRACKS_DATA } from './data/tracksData';
 import { DEFAULT_GIGS } from './data/defaultGigs';
 import { d1Api } from './services/d1Api';
 
 export default function App() {
-  // --- Simple Client-side Router for / and /galery ---
+  // --- Simple Client-side Router for /, /galery, and /sounds ---
   const [currentRoute, setCurrentRoute] = useState(() => {
     if (typeof window !== 'undefined') {
-      if (window.location.pathname === '/galery' || window.location.hash === '#galery' || window.location.hash === '#/galery') {
+      const p = window.location.pathname;
+      const h = window.location.hash;
+      if (p === '/sounds' || h === '#sounds' || h === '#/sounds') {
+        return '/sounds';
+      }
+      if (p === '/galery' || h === '#galery' || h === '#/galery') {
         return '/galery';
       }
     }
@@ -38,7 +45,11 @@ export default function App() {
 
   useEffect(() => {
     const handlePopState = () => {
-      if (window.location.pathname === '/galery' || window.location.hash === '#galery' || window.location.hash === '#/galery') {
+      const p = window.location.pathname;
+      const h = window.location.hash;
+      if (p === '/sounds' || h === '#sounds' || h === '#/sounds') {
+        setCurrentRoute('/sounds');
+      } else if (p === '/galery' || h === '#galery' || h === '#/galery') {
         setCurrentRoute('/galery');
       } else {
         setCurrentRoute('/');
@@ -125,10 +136,18 @@ export default function App() {
   };
 
   const handleResetDefaults = () => {
-    if (window.confirm("Kembalikan jadwal kalender ke 20 event tur resmi September 2026?")) {
+    if (window.confirm("Kembalikan jadwal kalender ke default?")) {
       setEvents(DEFAULT_GIGS);
       d1Api.saveLocalEvents(DEFAULT_GIGS);
-      showToast("Kalender telah di-reset ke jadwal default September 2026.");
+      showToast("Kalender telah di-reset ke jadwal default.");
+    }
+  };
+
+  const handleClearAllEvents = async () => {
+    if (window.confirm("Kosongkan semua jadwal event kalender? Kalender akan bersih dan siap untuk jadwal tur baru.")) {
+      setEvents([]);
+      d1Api.clearLocalEvents();
+      showToast("Semua event kalender telah dibersihkan.");
     }
   };
 
@@ -325,13 +344,25 @@ export default function App() {
             onOpenEPKModal={() => setIsEPKModalOpen(true)}
           />
         </main>
+      ) : currentRoute === '/sounds' ? (
+        <main className="flex flex-col">
+          <SoundsOfMePage
+            onBackToHome={() => navigateToRoute('/')}
+            onOpenEPKModal={() => setIsEPKModalOpen(true)}
+            activeTrackIndex={activeTrackIndex}
+            isPlaying={isPlaying}
+            playProgress={playProgress}
+            onSelectTrack={handleSelectTrack}
+            onTogglePlay={handleTogglePlay}
+            onPrevTrack={handlePrevTrack}
+            onNextTrack={handleNextTrack}
+            onScrub={handleScrub}
+          />
+        </main>
       ) : (
         <main className="flex flex-col">
           <Hero
-            onExploreSounds={() => {
-              const el = document.getElementById('sounds-of-me');
-              if (el) el.scrollIntoView({ behavior: 'smooth' });
-            }}
+            onExploreSounds={() => navigateToRoute('/sounds')}
             onExploreGallery={() => navigateToRoute('/galery')}
             onBookTour={() => {
               const el = document.getElementById('kalender');
@@ -339,7 +370,7 @@ export default function App() {
             }}
           />
 
-          <AboutMe />
+          <AboutMe onOpenEPK={() => setIsEPKModalOpen(true)} />
 
           {/* Press Kit Galery 3D Perspective Carousel */}
           <StageGalleryMirrorHall
@@ -356,6 +387,7 @@ export default function App() {
             onPrevTrack={handlePrevTrack}
             onNextTrack={handleNextTrack}
             onScrub={handleScrub}
+            onViewAllSounds={() => navigateToRoute('/sounds')}
           />
 
           <CalendarCMS
@@ -363,72 +395,14 @@ export default function App() {
             onOpenCMS={() => setIsCMSOpen(true)}
             onRSVP={handleRSVP}
           />
-
-          <EPKRider
-            onBookingSubmit={handleBookingSubmit}
-          />
         </main>
       )}
 
-      {/* Footer */}
-      <footer className="py-12 border-t border-[#444444] bg-[#141414] relative z-10">
-        <div className="w-[92%] max-w-[1560px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-3">
-            <img src="/asset/3d-logo.png" alt="Ronald 3D" className="w-8 h-8 object-contain drop-shadow-[0_0_8px_rgba(226,232,0,0.6)]" />
-            <span className="font-display font-black text-sm tracking-wider text-white">
-              RONALD <span className="text-[#E2E800]">3D</span> &copy; 2026
-            </span>
-          </div>
-
-          {/* Social Media Links */}
-          <div className="flex items-center gap-3 flex-wrap justify-center">
-            <a
-              href="https://www.instagram.com/ronald_3d/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#e1306c] hover:text-white border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
-            >
-              Instagram
-            </a>
-            <a
-              href="https://www.youtube.com/c/Ronald3D"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#ff0000] hover:text-white border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
-            >
-              YouTube
-            </a>
-            <a
-              href="https://open.spotify.com/artist/3HkeKnw42As9Ag8BluG93o"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#1db954] hover:text-black border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
-            >
-              Spotify
-            </a>
-            <a
-              href="https://soundcloud.com/ronald3d"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#ff5500] hover:text-white border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
-            >
-              SoundCloud
-            </a>
-            <a
-              href="https://www.tiktok.com/@ronald.3d"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3.5 py-1.5 rounded-full bg-[#1e1e1e] hover:bg-[#E2E800] hover:text-[#141414] border border-[#444444] text-xs font-mono text-[#D6D6D6] transition-all"
-            >
-              TikTok
-            </a>
-          </div>
-
-          <p className="text-xs text-[#979797] font-mono text-center md:text-right">
-            All Rights Reserved • Powered by React & Cloudflare D1
-          </p>
-        </div>
-      </footer>
+      {/* Modern Complete Footer with KAKODETA.ID Watermark */}
+      <Footer
+        onNavigate={navigateToRoute}
+        onOpenCMS={() => setIsCMSOpen(true)}
+      />
 
       {/* Modals & Notifications */}
       <EPKRiderModal
@@ -451,6 +425,7 @@ export default function App() {
         onSaveEvent={handleSaveEvent}
         onDeleteEvent={handleDeleteEvent}
         onResetDefaults={handleResetDefaults}
+        onClearAllEvents={handleClearAllEvents}
         isD1Connected={isD1Connected}
         inquiries={inquiries}
       />

@@ -20,9 +20,12 @@ export default function CMSModal({
   onSaveEvent,
   onDeleteEvent,
   onResetDefaults,
+  onClearAllEvents,
   isD1Connected,
   inquiries = []
 }) {
+  const todayStr = new Date().toISOString().split('T')[0];
+
   // Authentication state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
@@ -38,7 +41,7 @@ export default function CMSModal({
     id: '',
     title: '',
     venue: '',
-    date: '2026-09-02',
+    date: todayStr,
     city: '',
     country: 'INDONESIA',
     stage: 'Headline Performance',
@@ -77,7 +80,7 @@ export default function CMSModal({
       id: '',
       title: '',
       venue: '',
-      date: '2026-09-02',
+      date: todayStr,
       city: '',
       country: 'INDONESIA',
       stage: 'Headline Performance',
@@ -353,17 +356,18 @@ export default function CMSModal({
                 </div>
 
                 {activeTab === 'calendar' && currentView === 'list' && (
-                  <div className="flex items-center gap-2 self-start sm:self-auto">
-                    {onResetDefaults && (
+                  <div className="flex items-center gap-2 self-start sm:self-auto flex-wrap">
+                    {onClearAllEvents && events.length > 0 && (
                       <button
-                        onClick={onResetDefaults}
-                        title="Kembalikan jadwal default 20 tur"
-                        className="px-3 py-1.5 rounded-xl bg-[#141414] hover:bg-[#242424] text-[#D6D6D6] hover:text-white font-mono text-xs border border-[#444444] flex items-center gap-1.5 transition-all"
+                        onClick={onClearAllEvents}
+                        title="Bersihkan semua event di kalender"
+                        className="px-3 py-1.5 rounded-xl bg-[#141414] hover:bg-red-500/20 text-red-400 hover:text-red-300 font-mono text-xs border border-red-500/30 flex items-center gap-1.5 transition-all"
                       >
-                        <RotateCcw className="w-3.5 h-3.5" />
-                        <span>RESET</span>
+                        <Trash2 className="w-3.5 h-3.5" />
+                        <span>CLEAR ALL</span>
                       </button>
                     )}
+
                     <button
                       onClick={handleOpenAdd}
                       className="px-3.5 py-1.5 rounded-xl bg-[#E2E800] hover:bg-[#f2f716] text-[#141414] font-black text-xs tracking-wide flex items-center gap-1.5 shadow-md shadow-[#E2E800]/25 transition-all uppercase"
@@ -516,6 +520,7 @@ export default function CMSModal({
                       <input
                         type="date"
                         required
+                        min={todayStr}
                         value={formData.date}
                         onChange={(e) => setFormData({ ...formData, date: e.target.value })}
                         className="w-full px-3.5 py-2.5 rounded-xl bg-[#141414] border border-[#444444] text-xs sm:text-sm text-white focus:border-[#E2E800] focus:outline-none transition-colors font-mono"

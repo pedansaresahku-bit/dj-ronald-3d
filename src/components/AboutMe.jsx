@@ -1,180 +1,173 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { User, Cpu, Disc, Waves, Sparkles, Quote, Globe2 } from 'lucide-react';
+import React, { useRef } from 'react';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import {
+  Flame,
+  Sparkles,
+  ArrowRight,
+  Download,
+  Calendar,
+  Waves
+} from 'lucide-react';
 
-export default function AboutMe() {
+// Word-by-word scroll-driven gradient illumination component
+function ScrollWordRevealText({ text, progress, className = "" }) {
+  const words = text.split(" ");
   return (
-    <section id="about-me" className="py-24 relative z-10">
-      <div className="w-[92%] max-w-[1560px] mx-auto">
+    <p className={`leading-relaxed ${className}`}>
+      {words.map((word, i) => {
+        const start = i / words.length;
+        const end = Math.min(1, start + (1.6 / words.length));
+        return (
+          <Word key={i} progress={progress} range={[start, end]}>
+            {word}
+          </Word>
+        );
+      })}
+    </p>
+  );
+}
 
-        {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+function Word({ children, progress, range }) {
+  const opacity = useTransform(progress, range, [0.25, 1]);
+  const color = useTransform(progress, range, ['#484848', '#FFFFFF']);
+  return (
+    <span className="relative inline-block mr-1.5 my-0.5">
+      <motion.span style={{ opacity, color }} className="transition-colors duration-150">
+        {children}
+      </motion.span>
+    </span>
+  );
+}
+
+export default function AboutMe({ onOpenEPK }) {
+  const containerRef = useRef(null);
+
+  // Track scroll progress specifically for this section
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 0.75", "end 0.35"]
+  });
+
+  const bioText = "Pelopor sejati skena Breakbeat dan Electronic Dance Music tanah air. RONALD 3D merevolusi panggung elektronik Indonesia lewat bassline berfrekuensi rendah yang tebal, ritme syncopated 138 BPM berenergi murni, dan performa multi-dimensi 3D yang mempersatukan ratusan ribu ravers di panggung festival dan clubbing Asia.";
+
+  const handleBookingClick = () => {
+    if (onOpenEPK) {
+      onOpenEPK();
+    } else {
+      window.open("https://wa.me/6281907779998?text=Halo%20Management%20Ronald%203D%2C%20saya%20tertarik%20untuk%20booking%20event.", "_blank");
+    }
+  };
+
+  return (
+    <section
+      id="about-me"
+      ref={containerRef}
+      className="relative min-h-screen w-full flex flex-col justify-center items-center py-20 sm:py-24 px-4 sm:px-6 md:px-12 overflow-hidden bg-[#0a0a0a] text-white select-none border-t border-[#1c1c1c]"
+    >
+      {/* Ambient Glows */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] sm:w-[850px] h-[380px] bg-[#E2E800]/8 rounded-full blur-[180px] pointer-events-none z-0" />
+      <div className="absolute bottom-10 right-10 w-[350px] h-[350px] bg-white/5 rounded-full blur-[140px] pointer-events-none z-0" />
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff05_1px,transparent_1px),linear-gradient(to_bottom,#ffffff05_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_50%,#000_70%,transparent_100%)] pointer-events-none z-0" />
+
+      <div className="relative z-10 w-full max-w-6xl mx-auto flex flex-col items-center">
+
+        {/* 1. TOP HEADER: PILL BADGE & HEADLINE TITLE */}
+        <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#E2E800]/15 border border-[#E2E800]/40 text-[#E2E800] text-xs font-mono font-bold uppercase mb-3 shadow-md shadow-[#E2E800]/15"
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-[#141414] border border-[#E2E800]/50 text-[#E2E800] text-xs font-mono font-black uppercase tracking-wider mb-4 shadow-[0_0_25px_rgba(226,232,0,0.15)]"
           >
-            <User className="w-3.5 h-3.5 text-[#E2E800]" />
-            <span>BIOGRAPHY & SOUND ARCHITECTURE</span>
+            <Flame className="w-4 h-4 text-[#E2E800]" />
+            <span>INDONESIAN BREAKBEAT PIONEER & PRODUCER</span>
+            <Sparkles className="w-4 h-4 text-[#E2E800]" />
           </motion.div>
 
           <motion.h2
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="font-display font-extrabold text-3xl sm:text-4xl md:text-5xl text-[#FFFFFF] tracking-tight mb-3"
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="font-display font-black text-4xl sm:text-5xl md:text-6xl text-white tracking-tight uppercase"
           >
-            About <span className="bg-gradient-to-r from-white via-[#E2E800] to-[#979797] bg-clip-text text-transparent drop-shadow-[0_0_20px_rgba(226,232,0,0.35)]">Ronald 3D</span>
+            ABOUT <span className="bg-gradient-to-r from-white via-[#E2E800] to-white bg-clip-text text-transparent drop-shadow-[0_0_35px_rgba(226,232,0,0.4)]">RONALD 3D</span>
           </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 15 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-[#D6D6D6] text-sm sm:text-base font-normal"
-          >
-            Pelopor revolusi electronic dance music modern dengan integrasi audio spasial 3 dimensi dan visual panggung imersif.
-          </motion.p>
         </div>
 
-        {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
-
-          {/* Visual Showcase Card (Left Column) */}
+        {/* 2. SIDE-BY-SIDE MAIN CONTENT (Image on Left, Simple Scroll-Reveal Text on Right) */}
+        <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+          
+          {/* SISI KIRI: DJ Cutout Photo (aboutme.png) with Smooth Bottom Fade (5 Cols) */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-5 rounded-3xl overflow-hidden relative min-h-[440px] border border-[#444444] hover:border-[#E2E800] shadow-2xl group flex flex-col justify-end p-6 sm:p-8 bg-[#1e1e1e] transition-all"
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-5 flex items-center justify-center relative min-h-[380px] sm:min-h-[460px] md:min-h-[500px]"
           >
-            <img
-              src="/asset/image-2.JPG"
-              alt="DJ Ronald 3D Performance"
-              loading="lazy"
-              decoding="async"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 filter brightness-90 contrast-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-[#141414]/60 to-transparent" />
+            <div className="relative w-full h-full max-w-[360px] sm:max-w-[420px] flex items-center justify-center">
+              
+              {/* Foreground Image with Smooth Bottom Gradient Fade */}
+              <img
+                src="/asset/aboutme.png"
+                alt="DJ Ronald 3D"
+                decoding="async"
+                className="max-h-full max-w-full object-contain filter drop-shadow-[0_20px_45px_rgba(0,0,0,0.95)] contrast-105 brightness-105"
+                style={{
+                  maskImage: 'linear-gradient(to bottom, black 65%, rgba(0,0,0,0.6) 82%, transparent 98%)',
+                  WebkitMaskImage: 'linear-gradient(to bottom, black 65%, rgba(0,0,0,0.6) 82%, transparent 98%)',
+                }}
+              />
 
-            <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141414]/90 backdrop-blur-md border border-[#E2E800]/60 text-[#E2E800] text-xs font-mono font-black uppercase mb-2 shadow-md shadow-[#E2E800]/20">
-                <Sparkles className="w-3.5 h-3.5 text-[#E2E800]" /> 3D DIMENSIONAL AUDIO
-              </div>
-              <h3 className="text-xl sm:text-2xl font-black font-display text-white mb-2 drop-shadow-md">
-                Spatial Sound & Live Synth Architect
-              </h3>
-              <p className="text-xs sm:text-sm text-[#D6D6D6] font-sans leading-relaxed">
-                Menghadirkan frekuensi harmonik melodis yang bergerak melintasi ruang panggung dengan presisi tinggi.
-              </p>
+              {/* Ambient Glowing Aura Behind DJ Silhouette */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-[#E2E800]/15 rounded-full blur-3xl pointer-events-none -z-10" />
             </div>
           </motion.div>
 
-          {/* Narrative & Capabilities Card (Right Column) */}
+          {/* SISI KANAN: Deskripsi Teks Simpel dengan Animasi Scroll Gradasi & Tombol Aksi (7 Cols) */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="lg:col-span-7 rounded-3xl p-6 sm:p-8 bg-[#1e1e1e]/95 border border-[#444444] shadow-2xl backdrop-blur-xl flex flex-col justify-between"
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="lg:col-span-7 flex flex-col justify-center space-y-7 text-center lg:text-left"
           >
-            <div>
-              <div className="flex items-center gap-3 mb-5 border-b border-[#444444] pb-4">
-                <div className="w-12 h-12 rounded-2xl bg-[#E2E800]/15 border border-[#E2E800]/40 text-[#E2E800] flex items-center justify-center shadow-lg shadow-[#E2E800]/15">
-                  <Cpu className="w-6 h-6" />
-                </div>
-                <div>
-                  <span className="font-mono text-xs font-black text-[#E2E800] uppercase tracking-wider block">THE ARTISTIC PHILOSOPHY</span>
-                  <h3 className="font-display font-extrabold text-xl sm:text-2xl text-white">Harmoni Dimensi Elektronik</h3>
-                </div>
-              </div>
-
-              <div className="text-[#D6D6D6] text-sm sm:text-base leading-relaxed space-y-3.5 font-normal mb-6">
-                <p>
-                  <strong className="text-white font-bold">Ronald 3D</strong> memadukan kedalaman emosional <em className="text-[#E2E800] font-semibold">Melodic Techno</em> dengan groove bertenaga <em className="text-white font-semibold">Tech House</em>, menciptakan pengalaman sonik yang menggetarkan panggung festival dari Indonesia hingga sirkuit rave internasional.
-                </p>
-                <p>
-                  Melalui set panggung yang memadukan 4-deck Pioneer CDJ-3000, analog filter sweeps, dan modulasi synthesizer live, setiap penampilan adalah perjalanan multidimensi yang dirancang khusus untuk crowd energi tinggi.
-                </p>
-              </div>
-
-              {/* Skills / Sound Pillars */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 mb-6">
-                <div className="p-3.5 rounded-2xl bg-[#141414] border border-[#444444] hover:border-[#E2E800]/50 transition-all flex items-start gap-3 shadow-inner">
-                  <Waves className="w-5 h-5 text-[#E2E800] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-xs font-bold text-white font-display">3D Spatial Acoustics</strong>
-                    <span className="text-[11px] text-[#979797] font-sans font-medium">Multi-channel surround audio engineering</span>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-2xl bg-[#141414] border border-[#444444] hover:border-[#E2E800]/50 transition-all flex items-start gap-3 shadow-inner">
-                  <Disc className="w-5 h-5 text-[#E2E800] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-xs font-bold text-white font-display">Quad CDJ Mastery</strong>
-                    <span className="text-[11px] text-[#979797] font-sans font-medium">Live harmonic key mixing & stem layering</span>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-2xl bg-[#141414] border border-[#444444] hover:border-[#E2E800]/50 transition-all flex items-start gap-3 shadow-inner">
-                  <Cpu className="w-5 h-5 text-[#E2E800] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-xs font-bold text-white font-display">Live Analog Synths</strong>
-                    <span className="text-[11px] text-[#979797] font-sans font-medium">Real-time oscillator & filter modulation</span>
-                  </div>
-                </div>
-
-                <div className="p-3.5 rounded-2xl bg-[#141414] border border-[#444444] hover:border-[#E2E800]/50 transition-all flex items-start gap-3 shadow-inner">
-                  <Globe2 className="w-5 h-5 text-[#E2E800] shrink-0 mt-0.5" />
-                  <div>
-                    <strong className="block text-xs font-bold text-white font-display">Global Tour Circuit</strong>
-                    <span className="text-[11px] text-[#979797] font-sans font-medium">Jakarta, Bali, Singapore, Bangkok, Tokyo</span>
-                  </div>
-                </div>
-              </div>
+            {/* Tagline / Subtitle */}
+            <div className="inline-flex items-center justify-center lg:justify-start gap-2 text-[#E2E800] text-xs font-mono font-bold tracking-widest uppercase">
+              <Waves className="w-4 h-4 text-[#E2E800]" />
+              <span>THE SONIC ARCHITECTURE</span>
             </div>
 
-            {/* Quote Ticker */}
-            <div className="p-4 rounded-2xl bg-[#141414] border-l-4 border-[#E2E800] flex items-start gap-3 mb-4 shadow-md">
-              <Quote className="w-5 h-5 text-[#E2E800] shrink-0 mt-0.5" />
-              <div>
-                <p className="italic text-xs sm:text-sm text-[#D6D6D6] font-serif leading-relaxed">
-                  "Musik adalah arsitektur gelombang tak kasat mata. Kami tidak hanya memutar trek, kami membangun dunia 3 dimensi di mana pendengar larut dalam ritme."
-                </p>
-                <span className="block text-[11px] font-mono font-black text-[#E2E800] mt-1.5 tracking-wider">— RONALD 3D</span>
-              </div>
+            {/* Simple Description Paragraph with Word-by-Word Scroll Gradient Reveal */}
+            <div className="px-1 sm:px-0">
+              <ScrollWordRevealText
+                text={bioText}
+                progress={scrollYProgress}
+                className="text-base sm:text-lg md:text-xl font-sans font-medium text-center lg:text-left leading-relaxed"
+              />
             </div>
 
-            {/* Official Social Media Badges */}
-            <div className="flex items-center gap-2 flex-wrap pt-3 border-t border-[#444444]">
-              <span className="text-[11px] font-mono font-bold text-[#979797] mr-1">FOLLOW:</span>
-              <a
-                href="https://www.instagram.com/ronald_3d/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded-full bg-[#141414] hover:bg-[#e1306c] hover:text-white border border-[#444444] text-[11px] font-mono font-bold text-[#D6D6D6] transition-all shadow-sm"
+            {/* Call to Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 pt-2">
+              {/* Main Booking Button (Yellow) */}
+              <button
+                onClick={handleBookingClick}
+                className="w-full sm:w-auto px-8 py-3.5 rounded-full bg-[#E2E800] hover:bg-[#f2f716] text-[#0d0d0d] font-display font-black text-xs sm:text-sm tracking-wider uppercase flex items-center justify-center gap-2 shadow-xl shadow-[#E2E800]/25 hover:scale-105 active:scale-95 transition-all cursor-pointer"
               >
-                Instagram (@ronald_3d)
-              </a>
-              <a
-                href="https://www.youtube.com/c/Ronald3D"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded-full bg-[#141414] hover:bg-[#ff0000] hover:text-white border border-[#444444] text-[11px] font-mono font-bold text-[#D6D6D6] transition-all shadow-sm"
+                <span>INQUIRE ARTIST BOOKING</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+
+              {/* Secondary Button: Download EPK (.PDF) */}
+              <button
+                onClick={handleBookingClick}
+                className="w-full sm:w-auto px-7 py-3.5 rounded-full bg-[#141414] hover:bg-[#1c1c1c] text-white border border-[#333333] hover:border-[#E2E800] font-mono font-bold text-xs tracking-wider uppercase flex items-center justify-center gap-2 transition-all hover:scale-105 active:scale-95 cursor-pointer"
               >
-                YouTube (Ronald 3D)
-              </a>
-              <a
-                href="https://www.tiktok.com/@ronald.3d"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="px-3.5 py-1.5 rounded-full bg-[#141414] hover:bg-[#E2E800] hover:text-[#141414] border border-[#444444] text-[11px] font-mono font-bold text-[#D6D6D6] transition-all shadow-sm"
-              >
-                TikTok (@ronald.3d)
-              </a>
+                <Download className="w-3.5 h-3.5 text-[#E2E800]" />
+                <span>DOWNLOAD EPK & RIDER (.PDF)</span>
+              </button>
             </div>
           </motion.div>
 

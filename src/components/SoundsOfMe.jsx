@@ -11,7 +11,8 @@ export default function SoundsOfMe({
   onTogglePlay,
   onPrevTrack,
   onNextTrack,
-  onScrub
+  onScrub,
+  onViewAllSounds
 }) {
   const currentTrack = TRACKS_DATA[activeTrackIndex] || TRACKS_DATA[0];
 
@@ -78,10 +79,22 @@ export default function SoundsOfMe({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-[#D6D6D6] text-sm sm:text-base font-normal"
+            className="text-[#D6D6D6] text-sm sm:text-base font-normal mb-5"
           >
             Dengarkan trek orisinal, live recording, dan remix eksklusif di berbagai platform musik digital terkemuka.
           </motion.p>
+
+          {onViewAllSounds && (
+            <div className="flex items-center justify-center">
+              <button
+                onClick={onViewAllSounds}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1e1e1e] hover:bg-[#E2E800] hover:text-[#141414] border border-[#444444] hover:border-[#E2E800] text-[#D6D6D6] hover:text-[#141414] text-xs font-mono font-bold uppercase tracking-wider shadow-lg hover:shadow-[#E2E800]/30 transition-all hover:scale-105 active:scale-95 group"
+              >
+                <span>Buka Media Hub Penuh (YouTube 4K, Spotify, SoundCloud)</span>
+                <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </button>
+            </div>
+          )}
         </div>
 
         {/* Media Channels Quick Access Bar */}

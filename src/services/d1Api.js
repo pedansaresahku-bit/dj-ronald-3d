@@ -6,9 +6,9 @@ export const d1Api = {
   getLocalEvents() {
     try {
       const stored = localStorage.getItem(STORAGE_KEY);
-      if (stored) {
+      if (stored !== null) {
         const parsed = JSON.parse(stored);
-        if (Array.isArray(parsed) && parsed.length >= 15) {
+        if (Array.isArray(parsed)) {
           return parsed;
         }
       }
@@ -26,24 +26,31 @@ export const d1Api = {
     }
   },
 
+  clearLocalEvents() {
+    try {
+      localStorage.removeItem(STORAGE_KEY);
+    } catch (e) {
+      console.warn("LocalStorage clear note:", e);
+    }
+  },
+
   async fetchEvents() {
-    // Attempt to fetch from Cloudflare D1
+    // 1. Primary: Attempt to fetch live events from Cloudflare D1
     try {
       const res = await fetch('/api/events');
       if (res.ok) {
         const json = await res.json();
-        if (json.data && Array.isArray(json.data) && json.data.length > 0) {
-          this.saveLocalEvents(json.data);
-          return { events: json.data, isD1: true };
-        } else if (json.d1_active) {
-          return { events: this.getLocalEvents(), isD1: true };
+        if (json.d1_active) {
+          const liveData = Array.isArray(json.data) ? json.data : [];
+          this.saveLocalEvents(liveData);
+          return { events: liveData, isD1: true };
         }
       }
     } catch (err) {
-      // Local fallback
       console.info("Cloudflare D1 offline or local mode:", err.message);
     }
 
+    // 2. Fallback: Local storage or clean default
     return { events: this.getLocalEvents(), isD1: false };
   },
 

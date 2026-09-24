@@ -8,27 +8,44 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
   const navLinks = [
     { name: 'Home', href: '#home', route: '/', icon: Sparkles },
     { name: 'About Me', href: '#about-me', route: '/', icon: User },
-    { name: 'Press Kit Galery', href: '#stage-gallery', route: '/galery', icon: Camera },
-    { name: 'Sounds of Me', href: '#sounds-of-me', route: '/', icon: Music },
+    { name: 'Press Kit Galery', href: '/galery', route: '/galery', icon: Camera, isPage: true },
+    { name: 'Sounds of Me', href: '/sounds', route: '/sounds', icon: Music, isPage: true },
     { name: 'Kalender', href: '#kalender', route: '/', icon: Calendar },
     { name: 'EPK Rider', href: '#epk-rider', route: '/', icon: FileText, highlight: true, isModal: true }
   ];
 
   const handleLinkClick = (e, link) => {
+    e.preventDefault();
     if (link.isModal && onOpenEPKModal) {
-      e.preventDefault();
       onOpenEPKModal();
       return;
     }
 
-    if (onNavigate) {
-      if (link.name === 'Press Kit Galery' && currentRoute === '/galery') {
-        return;
+    if (link.isPage) {
+      if (onNavigate) {
+        onNavigate(link.route);
       }
-      if (link.name === 'Press Kit Galery') {
-        onNavigate('/galery');
-      } else if (currentRoute === '/galery') {
+      return;
+    }
+
+    // Hash navigation for Home sections (#home, #about-me, #kalender)
+    if (currentRoute !== '/') {
+      if (onNavigate) {
         onNavigate('/');
+        // Small timeout to allow DOM to render homepage before scrolling
+        setTimeout(() => {
+          const targetId = link.href.replace('#', '');
+          const el = document.getElementById(targetId);
+          if (el) {
+            el.scrollIntoView({ behavior: 'smooth' });
+          }
+        }, 100);
+      }
+    } else {
+      const targetId = link.href.replace('#', '');
+      const el = document.getElementById(targetId);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
       }
     }
   };
@@ -41,11 +58,14 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
         <a
           href="#home"
           onClick={(e) => {
-            if (currentRoute === '/galery' && onNavigate) {
+            e.preventDefault();
+            if (currentRoute !== '/' && onNavigate) {
               onNavigate('/');
+            } else {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
             }
           }}
-          className="flex items-center gap-2.5 group"
+          className="flex items-center gap-2.5 group cursor-pointer"
         >
           <div className="relative w-8 h-8 flex items-center justify-center">
             <img
@@ -61,21 +81,24 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
 
         {/* Desktop Nav Items */}
         <nav className="hidden lg:flex items-center gap-1.5">
-          {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.isModal ? '#' : currentRoute === '/galery' ? `/${link.href}` : link.href}
-              onClick={(e) => handleLinkClick(e, link)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer ${link.highlight
-                ? 'bg-[#E2E800] text-[#141414] font-black shadow-lg shadow-[#E2E800]/30 hover:bg-[#f2f716] hover:scale-105'
-                : currentRoute === '/galery' && link.name === 'Press Kit Galery'
-                  ? 'bg-[#E2E800] text-[#141414] font-black shadow-md'
-                  : 'text-[#D6D6D6] hover:text-[#E2E800] hover:bg-[#242424]'
-                }`}
-            >
-              {link.name}
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isCurrentActive = link.isPage && currentRoute === link.route;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleLinkClick(e, link)}
+                className={`px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide transition-all cursor-pointer ${link.highlight
+                  ? 'bg-[#E2E800] text-[#141414] font-black shadow-lg shadow-[#E2E800]/30 hover:bg-[#f2f716] hover:scale-105'
+                  : isCurrentActive
+                    ? 'bg-[#E2E800] text-[#141414] font-black shadow-md'
+                    : 'text-[#D6D6D6] hover:text-[#E2E800] hover:bg-[#242424]'
+                  }`}
+              >
+                {link.name}
+              </a>
+            );
+          })}
         </nav>
 
         {/* Actions (Sound Toggle & Mobile Menu) */}
@@ -123,20 +146,23 @@ export default function Navbar({ isAudioActive, onToggleAudio, currentRoute = '/
             <div className="flex flex-col gap-2">
               {navLinks.map((link) => {
                 const Icon = link.icon;
+                const isCurrentActive = link.isPage && currentRoute === link.route;
                 return (
                   <a
                     key={link.name}
-                    href={link.isModal ? '#' : currentRoute === '/galery' ? `/${link.href}` : link.href}
+                    href={link.href}
                     onClick={(e) => {
                       setIsMobileMenuOpen(false);
                       handleLinkClick(e, link);
                     }}
                     className={`flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-bold transition-all cursor-pointer ${link.highlight
                       ? 'bg-[#E2E800] text-[#141414] font-black shadow-lg shadow-[#E2E800]/20'
-                      : 'text-[#D6D6D6] hover:text-[#E2E800] hover:bg-[#242424]'
+                      : isCurrentActive
+                        ? 'bg-[#E2E800] text-[#141414] font-black shadow-md'
+                        : 'text-[#D6D6D6] hover:text-[#E2E800] hover:bg-[#242424]'
                       }`}
                   >
-                    <Icon className="w-4 h-4 text-[#E2E800]" />
+                    <Icon className={`w-4 h-4 ${isCurrentActive ? 'text-[#141414]' : 'text-[#E2E800]'}`} />
                     <span>{link.name}</span>
                   </a>
                 );

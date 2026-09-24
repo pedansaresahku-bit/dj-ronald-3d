@@ -46,26 +46,18 @@ export default function LightboxModal({ isOpen, onClose, image, title, caption }
           </div>
 
           {/* Bottom Info Bar */}
-          <div className="w-full p-4 sm:px-6 bg-obsidian-surface/95 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-            <div>
-              <div className="flex items-center gap-2 mb-1">
-                <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-cyan/15 text-cyan border border-cyan/30 flex items-center gap-1">
-                  <Sparkles className="w-3 h-3 text-cyan" /> STAGE MOMENT
-                </span>
-                <h4 className="text-base sm:text-lg font-bold text-white font-display">
-                  {title || "Ronald 3D Live Experience"}
-                </h4>
-              </div>
-              <p className="text-xs sm:text-sm text-slate-300 font-sans">
-                {caption || "Official Tour Documentation 2026"}
-              </p>
+          <div className="w-full p-4 sm:px-6 bg-[#1e1e1e]/95 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+            <div className="flex items-center gap-2">
+              <span className="px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-[#E2E800]/15 text-[#E2E800] border border-[#E2E800]/40 flex items-center gap-1">
+                <Sparkles className="w-3 h-3 text-[#E2E800]" /> STUDIO SHOT
+              </span>
             </div>
 
             <div className="flex items-center gap-2">
               <a
                 href={image}
-                download="ronald-3d-stage.jpg"
-                className="px-4 py-2 rounded-full text-xs font-bold bg-cyan text-black hover:bg-cyan/90 flex items-center gap-1.5 transition-all shadow-sm"
+                download="ronald-3d-press.jpg"
+                className="px-4 py-2 rounded-full text-xs font-mono font-bold bg-[#E2E800] text-[#141414] hover:bg-[#f2f716] flex items-center gap-1.5 transition-all shadow-sm"
               >
                 <Download className="w-3.5 h-3.5" /> Download High-Res
               </a>

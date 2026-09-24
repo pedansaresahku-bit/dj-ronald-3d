@@ -126,8 +126,8 @@ export default function PressKitGalleryPage({ onOpenLightbox, onBackToHome, onOp
 
                 {/* Top Tag & Zoom Action */}
                 <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between z-10">
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-black bg-black/70 backdrop-blur-md text-cyan border border-cyan/40 uppercase shadow-sm">
-                    {photo.tag || 'PRESS PHOTO'}
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-mono font-black bg-black/80 backdrop-blur-md text-[#E2E800] border border-[#E2E800]/50 uppercase shadow-md shadow-[#E2E800]/10">
+                    STUDIO SHOT
                   </span>
 
                   <button
@@ -135,29 +135,22 @@ export default function PressKitGalleryPage({ onOpenLightbox, onBackToHome, onOp
                       e.stopPropagation();
                       onOpenLightbox(photo.img, photo.title, photo.caption);
                     }}
-                    className="w-8 h-8 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white hover:bg-cyan hover:text-black flex items-center justify-center transition-all opacity-0 group-hover:opacity-100"
+                    className="w-8 h-8 rounded-full bg-black/80 backdrop-blur-md border border-white/20 text-white hover:bg-[#E2E800] hover:text-[#141414] hover:border-[#E2E800] flex items-center justify-center transition-all opacity-0 group-hover:opacity-100 shadow-md"
                     title="Inspect Photo"
                   >
                     <Maximize2 className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
-                {/* Bottom Meta & Details */}
+                {/* Bottom Meta & Actions (Clean without title) */}
                 <div className="absolute bottom-0 inset-x-0 p-4 z-10 translate-y-2 group-hover:translate-y-0 transition-transform">
-                  <h3 className="font-display font-black text-sm sm:text-base text-white leading-tight mb-1 group-hover:text-cyan transition-colors uppercase">
-                    {photo.title}
-                  </h3>
-                  <p className="text-[11px] text-slate-300 font-sans line-clamp-2 mb-3 opacity-90 group-hover:opacity-100 transition-opacity">
-                    {photo.details || photo.caption}
-                  </p>
-
-                  <div className="flex items-center justify-between pt-2 border-t border-white/20 opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="flex items-center justify-between pt-2 border-t border-white/20 opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 backdrop-blur-md -mx-4 -mb-4 p-3.5 rounded-b-3xl">
                     <span className="text-[10px] font-mono font-bold text-slate-300">300 DPI • High-Res</span>
                     <a
                       href={photo.img}
                       download={`Ronald3D_${photo.id}.jpg`}
                       onClick={(e) => e.stopPropagation()}
-                      className="px-2.5 py-1 rounded-lg bg-white/20 hover:bg-cyan hover:text-black text-[10px] font-mono font-bold text-white flex items-center gap-1 transition-colors"
+                      className="px-3 py-1.5 rounded-lg bg-[#E2E800] hover:bg-[#f2f716] text-[#141414] text-[10px] font-mono font-black uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-md shadow-[#E2E800]/20 hover:scale-105"
                     >
                       <Download className="w-3 h-3" />
                       <span>Download</span>
