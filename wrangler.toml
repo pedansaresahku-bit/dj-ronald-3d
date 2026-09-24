@@ -2,7 +2,7 @@
 # Cloudflare Pages / Workers Configuration for Ronald 3D
 # ========================================================================
 
-name = "ronald-3d"
+name = "dj-ronald-3d"
 compatibility_date = "2024-01-01"
 pages_build_output_dir = "dist"
 
