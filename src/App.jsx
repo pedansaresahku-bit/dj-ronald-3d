@@ -379,14 +379,6 @@ export default function App() {
           />
 
           <SoundsOfMe
-            activeTrackIndex={activeTrackIndex}
-            isPlaying={isPlaying}
-            playProgress={playProgress}
-            onSelectTrack={handleSelectTrack}
-            onTogglePlay={handleTogglePlay}
-            onPrevTrack={handlePrevTrack}
-            onNextTrack={handleNextTrack}
-            onScrub={handleScrub}
             onViewAllSounds={() => navigateToRoute('/sounds')}
           />
 
