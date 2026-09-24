@@ -17,29 +17,17 @@ import {
   Share2,
   Music2,
   Headphones,
-  Sliders,
-  SkipBack,
-  SkipForward,
   RefreshCw
 } from 'lucide-react';
 import { fetchLatestYouTubeVideos, DEFAULT_YOUTUBE_VIDEOS, OFFICIAL_RONALD3D_CHANNEL } from '../services/youtubeService';
 import { fetchLatestSoundCloudTracks, DEFAULT_SOUNDCLOUD_TRACKS, OFFICIAL_SOUNDCLOUD_PROFILE } from '../services/soundCloudService';
 import { fetchLatestSpotifyReleases, DEFAULT_SPOTIFY_TRACKS, OFFICIAL_SPOTIFY_CONFIG } from '../services/spotifyService';
-import { TRACKS_DATA } from '../data/tracksData';
 
 export default function SoundsOfMePage({
   onBackToHome,
-  onOpenEPKModal,
-  activeTrackIndex,
-  isPlaying,
-  playProgress,
-  onSelectTrack,
-  onTogglePlay,
-  onPrevTrack,
-  onNextTrack,
-  onScrub
+  onOpenEPKModal
 }) {
-  // Navigation tabs: 'all' | 'youtube' | 'spotify' | 'soundcloud' | 'synth'
+  // Navigation tabs: 'all' | 'youtube' | 'spotify' | 'soundcloud'
   const [activeTab, setActiveTab] = useState('all');
 
   // --- YouTube Videos State ---
@@ -92,15 +80,6 @@ export default function SoundsOfMePage({
 
   const activeVideo = ytVideos[activeYtIndex] || ytVideos[0];
   const activeScTrack = scTracks[activeScIndex] || scTracks[0];
-
-  const formatTime = (seconds) => {
-    const mins = Math.floor(seconds / 60);
-    const secs = seconds % 60;
-    return `${mins}:${String(secs).padStart(2, '0')}`;
-  };
-
-  const currentTrack = TRACKS_DATA[activeTrackIndex] || TRACKS_DATA[0];
-  const currentPercent = (playProgress / currentTrack.durationSec) * 100;
 
   return (
     <div className="min-h-screen bg-[#141414] text-[#D6D6D6] pt-24 pb-24 selection:bg-[#E2E800] selection:text-[#141414]">
@@ -179,7 +158,7 @@ export default function SoundsOfMePage({
             transition={{ delay: 0.2 }}
             className="text-[#D6D6D6] text-sm sm:text-base font-normal leading-relaxed"
           >
-            Pusat terintegrasi pemutaran video resmi YouTube (otomatis 4 video terbaru), trek SoundCloud resmi, playlist Spotify, dan modul interaktif 3D Audio Synthesizer.
+            Pusat terintegrasi pemutaran video resmi YouTube (otomatis 4 video terbaru), trek SoundCloud resmi, dan playlist Spotify Ronald 3D.
           </motion.p>
         </div>
 
@@ -189,8 +168,7 @@ export default function SoundsOfMePage({
             { id: 'all', label: 'Semua Media', icon: Sparkles },
             { id: 'youtube', label: 'YouTube Video (4 Terakhir)', icon: Youtube },
             { id: 'soundcloud', label: 'SoundCloud Sets (Live Sync)', icon: Radio },
-            { id: 'spotify', label: 'Spotify Playlist & Tracks', icon: Disc },
-            { id: 'synth', label: '3D Audio Synth Lab', icon: Sliders }
+            { id: 'spotify', label: 'Spotify Playlist & Tracks', icon: Disc }
           ].map((tab) => {
             const Icon = tab.icon;
             const isActive = activeTab === tab.id;
@@ -499,160 +477,6 @@ export default function SoundsOfMePage({
                 >
                   Buka di Spotify App &rarr;
                 </a>
-              </div>
-            </div>
-          </section>
-        )}
-
-        {/* ========================================================================= */}
-        {/* SECTION 4: 3D WEB AUDIO SYNTHESIZER LAB */}
-        {/* ========================================================================= */}
-        {(activeTab === 'all' || activeTab === 'synth') && (
-          <section className="mb-16">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-3 border-b border-[#444444]">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-2xl bg-[#E2E800]/15 border border-[#E2E800]/40 text-[#E2E800] flex items-center justify-center shadow-lg shadow-[#E2E800]/20">
-                  <Sliders className="w-5 h-5" />
-                </div>
-                <div>
-                  <h2 className="font-display font-black text-2xl sm:text-3xl text-white">
-                    3D Spatial <span className="text-[#E2E800]">Audio Synthesizer</span>
-                  </h2>
-                  <p className="text-xs text-[#979797] font-mono">
-                    Realtime Web Audio API Multi-Oscillator & Filter Modulator
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Synthesizer Player Box */}
-            <div className="rounded-3xl p-6 sm:p-8 bg-[#1e1e1e]/95 border border-[#444444] shadow-2xl backdrop-blur-2xl">
-              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-
-                {/* Left: Track Info & Controls */}
-                <div className="lg:col-span-6 flex flex-col justify-between">
-                  <div className="flex items-center gap-5 mb-6">
-                    <div className="relative w-24 h-24 rounded-2xl overflow-hidden shadow-2xl border border-[#444444] shrink-0">
-                      <img src={currentTrack.cover} alt={currentTrack.title} className="w-full h-full object-cover" />
-                      <button
-                        onClick={onTogglePlay}
-                        className="absolute inset-0 m-auto w-10 h-10 rounded-full bg-[#E2E800] text-[#141414] flex items-center justify-center shadow-lg shadow-[#E2E800]/50 font-black"
-                      >
-                        {isPlaying ? <Pause className="w-4 h-4 fill-[#141414]" /> : <Play className="w-4 h-4 fill-[#141414] ml-0.5" />}
-                      </button>
-                    </div>
-
-                    <div>
-                      <span className="text-xs font-mono font-black text-[#E2E800] uppercase tracking-wider block mb-1">
-                        {currentTrack.genre}
-                      </span>
-                      <h3 className="font-display font-extrabold text-xl text-white mb-1">
-                        {currentTrack.title}
-                      </h3>
-                      <p className="text-xs text-[#979797] font-mono">
-                        Harmonic Frequencies: {currentTrack.freqs.join('Hz • ')}Hz
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Scrubber */}
-                  <div
-                    onClick={(e) => {
-                      const rect = e.currentTarget.getBoundingClientRect();
-                      const clickX = e.clientX - rect.left;
-                      const percent = Math.max(0, Math.min(1, clickX / rect.width));
-                      onScrub(percent * currentTrack.durationSec);
-                    }}
-                    className="relative h-12 bg-[#141414] rounded-2xl p-2 cursor-pointer overflow-hidden border border-[#444444] mb-2 flex items-center"
-                  >
-                    <div className="flex items-center justify-between w-full h-full gap-[3px]">
-                      {Array.from({ length: 42 }).map((_, bIdx) => {
-                        const barPct = (bIdx / 42) * 100;
-                        const isPassed = barPct <= currentPercent;
-                        const rH = Math.max(20, Math.sin(bIdx * 0.4) * 40 + 35);
-                        return (
-                          <div
-                            key={bIdx}
-                            className={`flex-1 rounded-full transition-all duration-150 ${isPassed ? 'bg-[#E2E800] shadow-[0_0_8px_rgba(226,232,0,0.9)]' : 'bg-[#444444]'
-                              }`}
-                            style={{ height: isPlaying ? `${Math.min(100, rH + (Math.sin(bIdx + playProgress) * 20))}%` : `${rH}%` }}
-                          />
-                        );
-                      })}
-                    </div>
-                  </div>
-
-                  <div className="flex items-center justify-between text-xs font-mono font-bold text-[#979797] mb-6">
-                    <span>{formatTime(playProgress)}</span>
-                    <span className="text-[#E2E800]">{formatTime(currentTrack.durationSec)}</span>
-                  </div>
-
-                  {/* Transport Buttons */}
-                  <div className="flex items-center justify-between pt-4 border-t border-[#444444]">
-                    <div className="flex items-center gap-3">
-                      <button onClick={onPrevTrack} className="w-10 h-10 rounded-full bg-[#141414] border border-[#444444] text-white flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] transition-colors">
-                        <SkipBack className="w-4 h-4" />
-                      </button>
-                      <button onClick={onTogglePlay} className="w-12 h-12 rounded-full bg-[#E2E800] text-[#141414] flex items-center justify-center hover:scale-105 shadow-lg shadow-[#E2E800]/40 transition-transform font-bold">
-                        {isPlaying ? <Pause className="w-5 h-5 fill-[#141414]" /> : <Play className="w-5 h-5 fill-[#141414] ml-0.5" />}
-                      </button>
-                      <button onClick={onNextTrack} className="w-10 h-10 rounded-full bg-[#141414] border border-[#444444] text-white flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] transition-colors">
-                        <SkipForward className="w-4 h-4" />
-                      </button>
-                    </div>
-
-                    <div className="flex items-center gap-2">
-                      {TRACKS_DATA.map((t, idx) => (
-                        <button
-                          key={t.id}
-                          onClick={() => onSelectTrack(idx)}
-                          className={`px-3 py-1.5 rounded-xl text-xs font-mono font-bold transition-all ${idx === activeTrackIndex
-                            ? 'bg-[#E2E800] text-[#141414] font-black shadow-md shadow-[#E2E800]/30'
-                            : 'bg-[#141414] border border-[#444444] text-[#D6D6D6] hover:text-white'
-                            }`}
-                        >
-                          0{idx + 1}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right: Technical Specs */}
-                <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-2xl bg-[#141414] border border-[#444444]">
-                    <span className="text-xs font-mono font-black text-[#E2E800] uppercase block mb-1">
-                      Oscillator 1
-                    </span>
-                    <strong className="block text-sm text-white font-display mb-1">Sawtooth Wave</strong>
-                    <span className="text-xs text-[#979797] font-sans">680Hz Lowpass Cutoff Filter</span>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#141414] border border-[#444444]">
-                    <span className="text-xs font-mono font-black text-[#E2E800] uppercase block mb-1">
-                      Oscillator 2
-                    </span>
-                    <strong className="block text-sm text-white font-display mb-1">Sine Sub-Harmonic</strong>
-                    <span className="text-xs text-[#979797] font-sans">Dual Key Frequency Layering</span>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#141414] border border-[#444444]">
-                    <span className="text-xs font-mono font-black text-[#E2E800] uppercase block mb-1">
-                      Rhythm Engine
-                    </span>
-                    <strong className="block text-sm text-white font-display mb-1">128 BPM Kick Pulse</strong>
-                    <span className="text-xs text-[#979797] font-sans">Analog Exponential Pitch Decay</span>
-                  </div>
-
-                  <div className="p-4 rounded-2xl bg-[#141414] border border-[#444444]">
-                    <span className="text-xs font-mono font-black text-[#E2E800] uppercase block mb-1">
-                      Spatial Engine
-                    </span>
-                    <strong className="block text-sm text-white font-display mb-1">3D Spatial Pan</strong>
-                    <span className="text-xs text-[#979797] font-sans">Zero Latency Browser Audio</span>
-                  </div>
-                </div>
-
               </div>
             </div>
           </section>

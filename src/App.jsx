@@ -349,14 +349,6 @@ export default function App() {
           <SoundsOfMePage
             onBackToHome={() => navigateToRoute('/')}
             onOpenEPKModal={() => setIsEPKModalOpen(true)}
-            activeTrackIndex={activeTrackIndex}
-            isPlaying={isPlaying}
-            playProgress={playProgress}
-            onSelectTrack={handleSelectTrack}
-            onTogglePlay={handleTogglePlay}
-            onPrevTrack={handlePrevTrack}
-            onNextTrack={handleNextTrack}
-            onScrub={handleScrub}
           />
         </main>
       ) : (
