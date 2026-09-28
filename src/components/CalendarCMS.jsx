@@ -10,7 +10,8 @@ import {
   ExternalLink,
   X,
   Ticket,
-  Sliders
+  Sliders,
+  Clock
 } from 'lucide-react';
 
 export default function CalendarCMS({
@@ -117,64 +118,77 @@ export default function CalendarCMS({
     <section id="kalender" className="py-20 relative z-10 bg-[#141414]">
       <div className="w-[94%] max-w-[1600px] mx-auto">
 
-        {/* Top Header & Month Switcher Bar */}
-        <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-8 border-b border-[#444444] pb-6">
-
-          {/* Subtitle / Realtime Clock Description */}
-          <div className="max-w-2xl">
-            <p className="text-[#D6D6D6] text-xs sm:text-sm font-normal leading-relaxed">
-              Live automated schedule synchronized with Asia/Jakarta (WIB) real-time clock. Automatically transitions when the month flips. Click any date to inspect flyer poster and location map.
-            </p>
-          </div>
-
-          {/* Month Switcher Controls */}
-          <div className="flex items-center gap-3 self-start lg:self-auto">
-
-            {/* Prev Month Button */}
-            <button
-              onClick={handlePrevMonth}
-              aria-label="Previous Month"
-              className="w-10 h-10 rounded-full bg-[#1e1e1e] border border-[#444444] text-white flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] hover:border-[#E2E800] transition-all"
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </button>
-
-            {/* Current Month & Year Display Pill */}
-            <div className="px-5 py-2.5 rounded-full bg-[#1e1e1e] border border-[#E2E800]/50 flex items-center gap-2.5 shadow-lg shadow-[#E2E800]/10">
-              <span className="font-display font-black text-xs sm:text-sm tracking-wider text-white">
-                {monthNames[currentMonth]} {currentYear}
-              </span>
-
-              {/* NOW Badge if viewing September 2026 */}
-              {currentYear === 2026 && currentMonth === 8 && (
-                <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-[#E2E800] text-[#141414] tracking-wider uppercase">
-                  NOW
-                </span>
-              )}
+        {/* Top Header & Badges */}
+        <div className="mb-8 border-b border-[#333333] pb-6">
+          {/* Pills / Tags Row */}
+          <div className="flex items-center gap-2.5 mb-3.5">
+            {/* EVENT TOUR Pill */}
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#161616] border border-[#E2E800]/70 text-[#E2E800] text-xs font-mono font-bold tracking-wider uppercase shadow-[0_0_15px_rgba(226,232,0,0.18)]">
+              <Clock className="w-3.5 h-3.5 text-[#E2E800]" />
+              <span>EVENT TOUR</span>
             </div>
 
-            {/* Next Month Button */}
-            <button
-              onClick={handleNextMonth}
-              aria-label="Next Month"
-              className="w-10 h-10 rounded-full bg-[#1e1e1e] border border-[#444444] text-white flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] hover:border-[#E2E800] transition-all"
-            >
-              <ChevronRight className="w-5 h-5" />
-            </button>
-
-            {/* CMS Manager Button */}
+            {/* MANAGE GIGS Pill */}
             {onOpenCMS && (
               <button
                 onClick={onOpenCMS}
-                title="Kelola Event (Cloudflare D1 CMS)"
-                className="w-10 h-10 ml-2 rounded-full bg-[#E2E800]/20 border border-[#E2E800] text-[#E2E800] flex items-center justify-center hover:bg-[#E2E800] hover:text-[#141414] transition-all shadow-md shadow-[#E2E800]/20 font-bold"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#1b1b1b] border border-[#383838] hover:border-[#E2E800] text-[#979797] hover:text-white text-xs font-mono font-bold tracking-wider uppercase transition-all shadow-sm cursor-pointer"
               >
-                <Sliders className="w-4 h-4" />
+                <Sliders className="w-3.5 h-3.5" />
+                <span>MANAGE GIGS</span>
               </button>
             )}
-
           </div>
 
+          {/* Big Title: SEPTEMBER 2026 TOUR */}
+          <h2 className="font-display font-black text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-tight uppercase mb-4 text-white bg-gradient-to-b from-white via-[#E8E8E8] to-[#999999] bg-clip-text text-transparent drop-shadow-[0_4px_24px_rgba(255,255,255,0.12)]">
+            {monthNames[currentMonth]} {currentYear} TOUR
+          </h2>
+
+          {/* Subtitle & Month Switcher Row */}
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+            {/* Subtitle / Realtime Clock Description */}
+            <div className="max-w-2xl">
+              <p className="text-[#9E9E9E] text-xs sm:text-sm font-normal leading-relaxed">
+                Live automated schedule synchronized with Asia/Jakarta (WIB) real-time clock. Automatically transitions when the month flips. Click any date to inspect flyer poster and location map.
+              </p>
+            </div>
+
+            {/* Month Switcher Controls */}
+            <div className="flex items-center gap-2.5 shrink-0 self-start lg:self-auto">
+              {/* Prev Month Button */}
+              <button
+                onClick={handlePrevMonth}
+                aria-label="Previous Month"
+                className="w-10 h-10 rounded-full bg-[#181818] border border-[#333333] hover:border-[#E2E800] text-[#979797] hover:text-white flex items-center justify-center transition-all cursor-pointer hover:bg-[#202020]"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              {/* Current Month & Year Display Pill */}
+              <div className="px-5 py-2.5 rounded-full bg-[#181818] border border-[#333333] flex items-center gap-2.5 shadow-md">
+                <span className="font-display font-black text-xs sm:text-sm tracking-widest text-white uppercase">
+                  {monthNames[currentMonth]} {currentYear}
+                </span>
+
+                {/* NOW Badge if viewing current real month or default September 2026 */}
+                {((currentYear === today.getFullYear() && currentMonth === today.getMonth()) || (currentYear === 2026 && currentMonth === 8)) && (
+                  <span className="px-2 py-0.5 rounded text-[10px] font-mono font-black bg-[#E2E800] text-[#141414] tracking-wider uppercase shadow-sm">
+                    NOW
+                  </span>
+                )}
+              </div>
+
+              {/* Next Month Button */}
+              <button
+                onClick={handleNextMonth}
+                aria-label="Next Month"
+                className="w-10 h-10 rounded-full bg-[#181818] border border-[#333333] hover:border-[#E2E800] text-[#979797] hover:text-white flex items-center justify-center transition-all cursor-pointer hover:bg-[#202020]"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+          </div>
         </div>
 
         {/* 6-Column Calendar Grid */}
