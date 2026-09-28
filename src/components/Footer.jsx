@@ -33,7 +33,7 @@ export default function Footer({ onNavigate, onOpenCMS }) {
     }
   };
 
-  const waBookingUrl = "https://wa.me/6281907779998?text=Halo%20Management%20Ronald%203D%2C%20saya%20tertarik%20untuk%20booking%20event%20performa.";
+  const waBookingUrl = "https://wa.me/6285779577888?text=Halo%20Management%20Ronald%203D%2C%20saya%20tertarik%20untuk%20booking%20event%20performa.";
 
   return (
     <>
@@ -196,7 +196,7 @@ export default function Footer({ onNavigate, onOpenCMS }) {
                     className="flex items-center gap-2.5 hover:text-[#25D366] transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#25D366]" />
-                    <span>+62 819-0777-9998</span>
+                    <span>+62 857-7957-7888</span>
                   </a>
 
                   <a

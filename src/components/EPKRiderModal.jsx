@@ -18,7 +18,8 @@ import {
   CreditCard,
   Lock,
   Sparkles,
-  Info
+  Info,
+  MessageCircle
 } from 'lucide-react';
 
 export default function EPKRiderModal({ isOpen, onClose }) {
@@ -94,7 +95,7 @@ export default function EPKRiderModal({ isOpen, onClose }) {
 RONALD 3D — OFFICIAL RATECARD & EPK HOSPITALITY RIDER
 Artist: Ronald 3D
 Category: Breakbeat DJ & Electronic Music Producer
-WhatsApp: +62 812-3456-7890
+WhatsApp: +62 857-7957-7888
 Instagram: https://www.instagram.com/ronald_3d/
 Management Email: info@ronald3d.com
 =====================================================
@@ -409,6 +410,16 @@ Official Document • DJ Ronald 3D Management 2026`;
 
             {/* Action Buttons */}
             <div className="flex items-center gap-2.5 flex-wrap justify-center">
+              <a
+                href="https://wa.me/6285779577888?text=Halo%20Management%20DJ%20Ronald%203D%2C%20saya%20tertarik%20inquiry%20jadwal%20dan%20booking."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-4 py-2 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-[#0a2012] font-display font-black text-xs uppercase flex items-center gap-1.5 shadow-md shadow-[#25D366]/20 transition-all hover:scale-105 active:scale-95"
+              >
+                <MessageCircle className="w-3.5 h-3.5 fill-[#0a2012]" />
+                <span>WA (+62 857-7957-7888)</span>
+              </a>
+
               <a
                 href="https://instagram.com/ronald_3d/"
                 target="_blank"

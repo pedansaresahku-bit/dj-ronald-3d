@@ -54,7 +54,7 @@ export default function AboutMe({ onOpenEPK }) {
     if (onOpenEPK) {
       onOpenEPK();
     } else {
-      window.open("https://wa.me/6281907779998?text=Halo%20Management%20Ronald%203D%2C%20saya%20tertarik%20untuk%20booking%20event.", "_blank");
+      window.open("https://wa.me/6285779577888?text=Halo%20Management%20Ronald%203D%2C%20saya%20tertarik%20untuk%20booking%20event.", "_blank");
     }
   };
 
