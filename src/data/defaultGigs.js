@@ -1,5 +1,8 @@
-// Official Tour Schedule & Default Gigs Data for DJ Ronald 3D (September 2026)
+// Official Tour Schedule & Default Gigs Data for DJ Ronald 3D (September & October 2026)
 export const DEFAULT_GIGS = [
+  // ==========================================
+  // SEPTEMBER 2026 TOUR
+  // ==========================================
   {
     id: 'gig-20260901',
     date: '2026-09-01',
@@ -311,5 +314,321 @@ export const DEFAULT_GIGS = [
     status: 'Confirmed',
     flyer: '/asset/image-2.JPG',
     mapsUrl: 'https://maps.google.com/?q=Caviar+Banjarmasin'
+  },
+
+  // ==========================================
+  // OKTOBER 2026 TOUR
+  // ==========================================
+  {
+    id: 'gig-20261001',
+    date: '2026-10-01',
+    title: 'Sparta Club',
+    venue: 'Sparta',
+    city: 'Bandung',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-3.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Sparta+Bandung'
+  },
+  {
+    id: 'gig-20261002',
+    date: '2026-10-02',
+    title: 'Tembak Langit (Break Dealers)',
+    venue: 'Tembak Langit',
+    city: 'Bandung',
+    country: 'Indonesia',
+    stage: 'Break Dealers Special Set',
+    status: 'Confirmed',
+    flyer: '/asset/image-4.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Tembak+Langit+Bandung'
+  },
+  {
+    id: 'gig-20261004',
+    date: '2026-10-04',
+    title: 'Gozadera Club',
+    venue: 'Gozadera',
+    city: 'Surabaya',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-5.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Gozadera+Surabaya'
+  },
+  {
+    id: 'gig-20261005',
+    date: '2026-10-05',
+    title: 'Sparta Kemang',
+    venue: 'Sparta',
+    city: 'Kemang, Jakarta',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-6.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Sparta+Kemang+Jakarta'
+  },
+  {
+    id: 'gig-20261006',
+    date: '2026-10-06',
+    title: 'Pendekar Club',
+    venue: 'Pendekar',
+    city: 'Gading Serpong',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-7.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Pendekar+Gading+Serpong'
+  },
+  {
+    id: 'gig-20261007',
+    date: '2026-10-07',
+    title: 'The IX Club',
+    venue: 'The IX',
+    city: 'Malang',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-8.JPG',
+    mapsUrl: 'https://maps.google.com/?q=The+IX+Malang'
+  },
+  {
+    id: 'gig-20261008',
+    date: '2026-10-08',
+    title: 'Sparta Club',
+    venue: 'Sparta',
+    city: 'Bandung',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-9.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Sparta+Bandung'
+  },
+  {
+    id: 'gig-20261009',
+    date: '2026-10-09',
+    title: 'M Club',
+    venue: 'M Club',
+    city: 'Mojokerto',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-10.JPG',
+    mapsUrl: 'https://maps.google.com/?q=M+Club+Mojokerto'
+  },
+  {
+    id: 'gig-20261010',
+    date: '2026-10-10',
+    title: 'Pendekar Club',
+    venue: 'Pendekar',
+    city: 'Alam Sutera',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-11.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Pendekar+Alam+Sutera'
+  },
+  {
+    id: 'gig-20261012',
+    date: '2026-10-12',
+    title: 'Sparta Kemang',
+    venue: 'Sparta',
+    city: 'Kemang, Jakarta',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-12.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Sparta+Kemang+Jakarta'
+  },
+  {
+    id: 'gig-20261013',
+    date: '2026-10-13',
+    title: 'Society Club',
+    venue: 'Society',
+    city: 'Palangkaraya',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-13.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Society+Palangkaraya'
+  },
+  {
+    id: 'gig-20261014',
+    date: '2026-10-14',
+    title: '80 Proof Ultra',
+    venue: '80 Proof Ultra',
+    city: 'BSD',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-14.JPG',
+    mapsUrl: 'https://maps.google.com/?q=80+Proof+Ultra+BSD'
+  },
+  {
+    id: 'gig-20261015',
+    date: '2026-10-15',
+    title: 'Sparta Club',
+    venue: 'Sparta',
+    city: 'Bandung',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-15.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Sparta+Bandung'
+  },
+  {
+    id: 'gig-20261016',
+    date: '2026-10-16',
+    title: 'Alexa Club',
+    venue: 'Alexa',
+    city: 'PIK 2, Jakarta',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-16.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Alexa+PIK+2+Jakarta'
+  },
+  {
+    id: 'gig-20261017',
+    date: '2026-10-17',
+    title: 'Private Party VIP',
+    venue: 'Private Venue',
+    city: 'Jakarta',
+    country: 'Indonesia',
+    stage: 'VIP Exclusive Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-17.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Jakarta'
+  },
+  {
+    id: 'gig-20261019',
+    date: '2026-10-19',
+    title: 'Sparta Kemang',
+    venue: 'Sparta',
+    city: 'Kemang, Jakarta',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-18.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Sparta+Kemang+Jakarta'
+  },
+  {
+    id: 'gig-20261021',
+    date: '2026-10-21',
+    title: 'Caviar Club',
+    venue: 'Caviar',
+    city: 'Banjarmasin',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-19.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Caviar+Banjarmasin'
+  },
+  {
+    id: 'gig-20261022',
+    date: '2026-10-22',
+    title: 'Sparta Club',
+    venue: 'Sparta',
+    city: 'Bandung',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-20.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Sparta+Bandung'
+  },
+  {
+    id: 'gig-20261023',
+    date: '2026-10-23',
+    title: 'Ambyar Live House',
+    venue: 'Ambyar',
+    city: 'Senopati, Jakarta',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-21.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Ambyar+Senopati+Jakarta'
+  },
+  {
+    id: 'gig-20261024',
+    date: '2026-10-24',
+    title: 'Lava Club',
+    venue: 'Lava',
+    city: 'Solo',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-22.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Lava+Solo'
+  },
+  {
+    id: 'gig-20261026',
+    date: '2026-10-26',
+    title: 'Sparta Kemang',
+    venue: 'Sparta',
+    city: 'Kemang, Jakarta',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-23.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Sparta+Kemang+Jakarta'
+  },
+  {
+    id: 'gig-20261027',
+    date: '2026-10-27',
+    title: 'Monkey King Club',
+    venue: 'Monkey King',
+    city: 'Gading Serpong',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-24.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Monkey+King+Gading+Serpong'
+  },
+  {
+    id: 'gig-20261028',
+    date: '2026-10-28',
+    title: 'L2C Club',
+    venue: 'L2C',
+    city: 'Balikpapan',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-1.JPG',
+    mapsUrl: 'https://maps.google.com/?q=L2C+Balikpapan'
+  },
+  {
+    id: 'gig-20261029',
+    date: '2026-10-29',
+    title: 'Sparta Club',
+    venue: 'Sparta',
+    city: 'Bandung',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-2.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Sparta+Bandung'
+  },
+  {
+    id: 'gig-20261030',
+    date: '2026-10-30',
+    title: 'Amethyst Club',
+    venue: 'Amethyst',
+    city: 'Jakarta',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-3.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Amethyst+Jakarta'
+  },
+  {
+    id: 'gig-20261031',
+    date: '2026-10-31',
+    title: 'Kizz Club',
+    venue: 'Kizz',
+    city: 'Surabaya',
+    country: 'Indonesia',
+    stage: 'Headline Performance',
+    status: 'Confirmed',
+    flyer: '/asset/image-4.JPG',
+    mapsUrl: 'https://maps.google.com/?q=Kizz+Surabaya'
   }
 ];
